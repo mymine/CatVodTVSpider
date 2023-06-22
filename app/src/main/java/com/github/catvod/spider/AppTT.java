@@ -10,7 +10,7 @@ import android.util.Base64;
 import com.github.catvod.crawler.Spider;
 import com.github.catvod.crawler.SpiderDebug;
 import com.github.catvod.utils.Misc;
-import com.github.catvod.utils.okhttp.OkHttpUtil;
+import com.github.catvod.net.OkHttp;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -107,7 +107,7 @@ public class AppTT extends Spider {
             try {
                 String url = siteUrl + "/api.php/v1.vod/curnavitemlist?type_id=0";
 
-                String content = OkHttpUtil.string(url, getHeaders(url));
+                String content = OkHttp.string(url, getHeaders(url));
                 JSONObject jsonObject = new JSONObject(decryptResponse(content));
                 JSONArray jsonArray = jsonObject.getJSONObject("data").getJSONArray("swiperList");
                 for (int i = 0; i < jsonArray.length(); i++) {
@@ -141,7 +141,7 @@ public class AppTT extends Spider {
 //                    continue;
 //                url += "&" + key + "=" + URLEncoder.encode(val);
 //            }
-            String content = OkHttpUtil.string(url, getHeaders(url));
+            String content = OkHttp.string(url, getHeaders(url));
             JSONObject dataObject = new JSONObject(decryptResponse(content)).getJSONObject("data");
             JSONArray jsonArray = dataObject.getJSONArray("list");
             JSONArray videos = new JSONArray();
@@ -175,7 +175,7 @@ public class AppTT extends Spider {
     public String detailContent(List<String> ids) {
         try {
             String url = siteUrl + "/api.php/v1.vod/detilldata?vod_id=" + ids.get(0);
-            String content = OkHttpUtil.string(url, getHeaders(url));
+            String content = OkHttp.string(url, getHeaders(url));
             JSONObject dataObject = new JSONObject(decryptResponse(content));
             JSONObject vObj = dataObject.getJSONObject("data");
             JSONObject result = new JSONObject();
@@ -257,7 +257,7 @@ public class AppTT extends Spider {
                 jxurl = id;
             } else {
                 String url = id + "&sc=1&token=" + getToken();
-                String content = OkHttpUtil.string(url, getHeaders(url));
+                String content = OkHttp.string(url, getHeaders(url));
                 String decryptcontent = decrypt(content, "UTF-8", KEY, IV);
                 jxurl = new JSONObject(decryptcontent).getString("url");
             }
@@ -278,7 +278,7 @@ public class AppTT extends Spider {
     public String searchContent(String key, boolean quick) {
         try {
             String url = siteUrl + "/api.php/v1.vod?wd=" + URLEncoder.encode(key);
-            String content = OkHttpUtil.string(url, getHeaders(url));
+            String content = OkHttp.string(url, getHeaders(url));
             JSONObject dataObject = new JSONObject(decryptResponse(content));
             JSONArray jsonArray = dataObject.getJSONObject("data").getJSONArray("list");
             JSONArray videos = new JSONArray();

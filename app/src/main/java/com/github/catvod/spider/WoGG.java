@@ -5,7 +5,7 @@ import android.text.TextUtils;
 
 import com.github.catvod.crawler.Spider;
 import com.github.catvod.crawler.SpiderDebug;
-import com.github.catvod.net.OkHttpUtil;
+import com.github.catvod.net.OkHttp;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -65,7 +65,7 @@ public class WoGG extends Spider {
     @Override
     public String homeContent(boolean filter) {
         try {
-            Document doc = Jsoup.parse(OkHttpUtil.string(siteUrl, getHeaders(siteUrl)));
+            Document doc = Jsoup.parse(OkHttp.string(siteUrl, getHeaders(siteUrl)));
             // 分类节点
             Elements elements = doc.select("ul.nav-menu-items > .nav-menu-item a");
             JSONArray classes = new JSONArray();
@@ -144,7 +144,7 @@ public class WoGG extends Spider {
             }
             // 获取分类数据的url
             String url = siteUrl + "index.php/vodshow/" + TextUtils.join("-", urlParams) + ".html";
-            String html = OkHttpUtil.string(url, getHeaders(url));
+            String html = OkHttp.string(url, getHeaders(url));
             Document doc = Jsoup.parse(html);
             JSONObject result = new JSONObject();
             int pageCount = 0;
@@ -202,7 +202,7 @@ public class WoGG extends Spider {
     @Override
     public String detailContent(List<String> ids) throws Exception {
         String url = siteUrl + "index.php/voddetail/" + ids.get(0) + ".html";
-        Document doc = Jsoup.parse(OkHttpUtil.string(url, getHeaders(url)));
+        Document doc = Jsoup.parse(OkHttp.string(url, getHeaders(url)));
         Elements items = doc.select("div.module-row-info > a");
         if (items.size() == 0) return "";
         List<String> ids_ = new ArrayList<>();
@@ -239,7 +239,7 @@ public class WoGG extends Spider {
             if (quick)
                 return "";
             String url = siteUrl + "index.php/vodsearch/-------------.html?wd=" + URLEncoder.encode(key, "UTF-8");
-            Document doc = Jsoup.parse(OkHttpUtil.string(url, getHeaders(url)));
+            Document doc = Jsoup.parse(OkHttp.string(url, getHeaders(url)));
             JSONObject result = new JSONObject();
             JSONArray videos = new JSONArray();
             Elements list = doc.select("div.module-search-item");
