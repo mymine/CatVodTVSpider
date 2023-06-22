@@ -1,0 +1,35 @@
+name: Projects
+# 触发器
+on:
+  schedule:
+    - cron: 0 19 1 * * #每天在国际标准时间19点(北京时间+8，即 03:00)
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: Ubuntu-22.04
+    steps:
+      # 检出代码
+    - uses: actions/checkout@v3
+      # 删除旧的工作流
+    - name: Delete action workflows
+      uses: Mattraks/delete-workflow-runs@v2
+      with:
+        repository: ${{ github.repository }}
+        retain_days: 0 # 
+        keep_minimum_runs: 1 # 
+        
+    - name: Clone project
+      run: |
+        git clone --recurse-submodules https://github.com/xxxyyy888/CatVodSpider Project
+        cp -r Project/* ${{ github.workspace }}
+        cp -r Project/.github/workflows/* ${{ github.workspace }}/.github/
+        rm -rf Project
+        
+    - name: Update files
+      uses: EndBug/add-and-commit@main
+      with:        
+        default_author: github_actor
+        message: 'update files'
+        add: ${{ github.workspace }}/*
+        github_token: ${{ secrets.GITHUB_TOKEN }}
