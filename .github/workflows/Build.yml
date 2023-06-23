@@ -48,8 +48,6 @@ jobs:
          #添加WoGG
          curl -L https://github.com/zhixc/CatVodSpider/raw/dev/app/src/main/java/com/github/catvod/spider/Wogg.java > app/src/main/java/com/github/catvod/spider/Wogg.java
          #sed -i 's/OkHttpUtil/OkHttp/g' app/src/main/java/com/github/catvod/spider/WoGG.java
-         #添加AppTT
-         cp -r ../app/src/main/java/com/github/catvod/spider/AppTT.java app/src/main/java/com/github/catvod/spider/AppTT.java
          #简体化阿里云盘
          sed -i 's/原畫/原画/g' app/src/main/java/com/github/catvod/spider/Ali.java
          sed -i 's/原畫/原画/g;s/阿里雲盤/阿里云盘/g' app/src/main/java/com/github/catvod/ali/API.java
