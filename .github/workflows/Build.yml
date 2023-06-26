@@ -16,16 +16,6 @@ jobs:
         java-version: '18'
         distribution: 'temurin'
         
-    - name: Delete workflows
-      uses: Mattraks/delete-workflow-runs@v2
-      with:
-        token: ${{ github.token }}
-        repository: ${{ github.repository }}
-        retain_days: 0 
-        #The number of days that is used to compare with the retention days of each workflow.
-        keep_minimum_runs: 2 
-        #The minimum runs to keep for each workflow.
-      
     - name: Clone project
       run: |
         rm -rf project
