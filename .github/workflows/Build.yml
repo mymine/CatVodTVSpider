@@ -35,6 +35,10 @@ jobs:
     - name: Customize Spider
       working-directory: ./project
       run: |
+         #添加AES
+         curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/utils/AES.java > app/src/main/java/com/github/catvod/utils/AES.java
+         #添加CBC
+         curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/utils/CBC.java > app/src/main/java/com/github/catvod/utils/CBC.java
          #添加Misc
          curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/utils/Misc.java > app/src/main/java/com/github/catvod/utils/Misc.java
         
@@ -45,8 +49,13 @@ jobs:
          #curl -L https://github.com/xxxyyy888/CatVodSpider/raw/main/app/src/main/java/com/github/catvod/spider/AppYsV2.java > app/src/main/java/com/github/catvod/spider/AppYsV2.java
          #添加WoGG
          #cp ../app/src/main/java/com/github/catvod/spider/WoGG.java app/src/main/java/com/github/catvod/spider/WoGG.java
-         #添加Wogg
-         #curl -L https://github.com/zhixc/CatVodSpider/raw/dev/app/src/main/java/com/github/catvod/spider/Wogg.java > app/src/main/java/com/github/catvod/spider/Wogg.java
+         #添加Fantuan
+         curl -L https://github.com/hfr1107/TvJar/raw/master/app/src/main/java/com/github/catvod/spider/Fantuan.java > app/src/main/java/com/github/catvod/spider/Fantuan.java
+         sed -i 's/com.github.catvod.utils.okhttp.OkHttpUtil/com.github.catvod.net.OkHttp/g;s/OkHttpUtil/OkHttp/g' app/src/main/java/com/github/catvod/spider/Fantuan.java
+         #添加
+         curl -L https://github.com/hfr1107/TvJar/raw/master/app/src/main/java/com/github/catvod/spider/Czsapp.java > app/src/main/java/com/github/catvod/spider/Czsapp.java
+         sed -i 's/com.github.catvod.utils.okhttp.OkHttpUtil/com.github.catvod.net.OkHttp/g;s/OkHttpUtil/OkHttp/g' app/src/main/java/com/github/catvod/spider/Czsapp.java
+         
          
           #简体化阿里云盘
          sed -i 's/原畫/原画/g' app/src/main/java/com/github/catvod/spider/Ali.java
