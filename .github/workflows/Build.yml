@@ -55,6 +55,9 @@ jobs:
          #添加
          curl -L https://github.com/hfr1107/TvJar/raw/master/app/src/main/java/com/github/catvod/spider/Czsapp.java > app/src/main/java/com/github/catvod/spider/Czsapp.java
          sed -i 's/com.github.catvod.utils.okhttp.OkHttpUtil/com.github.catvod.net.OkHttp/g;s/OkHttpUtil/OkHttp/g' app/src/main/java/com/github/catvod/spider/Czsapp.java
+         #添加
+         curl -L https://github.com/hfr1107/TvJar/raw/master/app/src/main/java/com/github/catvod/spider/Auete.java app/src/main/java/com/github/catvod/spider/Auete.java
+         sed -i 's/com.github.catvod.utils.okhttp.OkHttpUtil/com.github.catvod.net.OkHttp/g;s/OkHttpUtil/OkHttp/g' app/src/main/java/com/github/catvod/spider/Auete.java
          
          
           #简体化阿里云盘
