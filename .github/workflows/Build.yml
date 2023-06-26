@@ -34,7 +34,8 @@ jobs:
          #curl -L https://github.com/xxxyyy888/CatVodSpider/raw/main/app/src/main/java/com/github/catvod/spider/AppYsV2.java > app/src/main/java/com/github/catvod/spider/AppYsV2.java
          
          #添加Live2Vod
-         #curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/spider/Live2Vod.java > app/src/main/java/com/github/catvod/spider/Live2Vod.java         
+         curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/bean/Live.java > app/src/main/java/com/github/catvod/bean/Live.java
+         curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/spider/Live2Vod.java > app/src/main/java/com/github/catvod/spider/Live2Vod.java         
          #sed -i 's/com.github.catvod.utils.okhttp.OkHttpUtil/com.github.catvod.net.OkHttp/g;s/OkHttpUtil/OkHttp/g' app/src/main/java/com/github/catvod/spider/Live2Vod.java
 
          #简体化阿里云盘
