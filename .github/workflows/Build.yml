@@ -40,6 +40,9 @@ jobs:
 
          #添加XYQBiu.java
          cp ../app/src/main/java/com/github/catvod/spider/XYQBiu.java app/src/main/java/com/github/catvod/spider/XYQBiu.java
+         cp ../app/src/main/java/com/github/catvod/net/OKCallBack.java app/src/main/java/com/github/catvod/net/OKCallBack.java
+         sed -i 's/com.github.catvod.utils.okhttp.OkHttpUtil/com.github.catvod.net.OkHttp/g;s/OkHttpUtil/OkHttp/g' app/src/main/java/com/github/catvod/spider/XYQBiu.java
+
          
          #简体化阿里云盘
          sed -i 's/原畫/原画/g' app/src/main/java/com/github/catvod/spider/Ali.java
