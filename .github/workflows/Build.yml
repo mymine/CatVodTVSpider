@@ -42,6 +42,7 @@ jobs:
          #cp ../app/src/main/java/com/github/catvod/spider/XYQBiu.java app/src/main/java/com/github/catvod/spider/XYQBiu.java
          #cp ../app/src/main/java/com/github/catvod/net/OKCallBack.java app/src/main/java/com/github/catvod/net/OKCallBack.java
          #sed -i 's/com.github.catvod.net.OkHttpUtil/com.github.catvod.net.OkHttp/g;s/OkHttpUtil/OkHttp/g' app/src/main/java/com/github/catvod/spider/XYQBiu.java
+         curl -L https://raw.githubusercontent.com/oiltea/CatVodSpider/main/app/src/main/java/com/github/catvod/spider/Wogg.java app/src/main/java/com/github/catvod/spider/Wogg.java
 
          
          #简体化阿里云盘
