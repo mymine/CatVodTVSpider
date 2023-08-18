@@ -46,7 +46,7 @@ jobs:
          curl -L https://github.com/oiltea/CatVodSpider/raw/main/app/src/main/java/com/github/catvod/spider/Wogg.java > app/src/main/java/com/github/catvod/spider/Wogg.java
          curl -L https://github.com/oiltea/CatVodSpider/raw/main/app/src/main/java/com/github/catvod/spider/Ali.java > app/src/main/java/com/github/catvod/spider/Ali.java
          curl -L https://github.com/oiltea/CatVodSpider/raw/main/app/src/main/java/com/github/catvod/bean/Vod.java > app/src/main/java/com/github/catvod/bean/Vod.java
-         curl -L https://github.com/oiltea/CatVodSpider/raw/main//app/src/main/java/com/github/catvod/ali/API.java > /app/src/main/java/com/github/catvod/ali/API.java
+         curl -L https://github.com/oiltea/CatVodSpider/raw/main/app/src/main/java/com/github/catvod/ali/API.java > app/src/main/java/com/github/catvod/ali/API.java
          
          #简体化阿里云盘
          sed -i 's/原畫/原画/g' app/src/main/java/com/github/catvod/spider/Ali.java
