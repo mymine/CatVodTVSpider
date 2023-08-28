@@ -46,7 +46,7 @@ jobs:
          #简体化阿里云盘
          sed -i 's/原畫/原画/g;s/普畫/普画/g' app/src/main/java/com/github/catvod/spider/Ali.java
          sed -i 's/原畫/原画/g;s/普畫/普画/g;s/阿里雲盤/阿里云盘/g' app/src/main/java/com/github/catvod/api/AliYun.java
-         curl -L https://github.com/oiltea/CatVodSpider/raw/9ab5cc627be4096db11bca9ee9177c13014ddadd/app/src/main/java/com/github/catvod/spider/Wogg.java > app/src/main/java/com/github/catvod/spider/Wogg.java
+         #curl -L https://github.com/oiltea/CatVodSpider/raw/9ab5cc627be4096db11bca9ee9177c13014ddadd/app/src/main/java/com/github/catvod/spider/Wogg.java > app/src/main/java/com/github/catvod/spider/Wogg.java
 
          #
          sed -i 's/https:\/\/s1.ax1x.com\/2023\/05\/04\/p9tgI81.png/http:\/\/image.coolapk.com\/feed\/2023\/0817\/10\/15491134_1b0929b1_9775_1639_274@512x512.png/g' app/src/main/java/com/github/catvod/utils/Image.java
