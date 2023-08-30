@@ -49,9 +49,7 @@ jobs:
          curl -L https://github.com/oiltea/CatVodSpider/raw/9ab5cc627be4096db11bca9ee9177c13014ddadd/app/src/main/java/com/github/catvod/spider/Wogg.java > app/src/main/java/com/github/catvod/spider/Wogg.java
          
          #
-         cp ../app/src/main/java/com/github/catvod/spider/YiSo.java app/src/main/java/com/github/catvod/spider/YiSo.java
          sed -i 's/https:\/\/s1.ax1x.com\/2023\/05\/04\/p9tgI81.png/http:\/\/image.coolapk.com\/feed\/2023\/0817\/10\/15491134_1b0929b1_9775_1639_274@512x512.png/g' app/src/main/java/com/github/catvod/utils/Image.java
-         sed -i 's/zhaoziyuan.la/zhaoziyuan.me/g' app/src/main/java/com/github/catvod/spider/Zhaozy.java
          rm -rf app/src/main/java/com/github/catvod/spider/Ysj.java
          rm -rf app/src/main/java/com/github/catvod/spider/Dm84.java
          rm -rf app/src/main/java/com/github/catvod/spider/JSDemo.java
