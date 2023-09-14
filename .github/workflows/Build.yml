@@ -26,15 +26,13 @@ jobs:
       working-directory: ./project
       run: |
          #添加Misc
-         #curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/utils/Misc.java > app/src/main/java/com/github/catvod/utils/Misc.java
-         curl -L https://raw.githubusercontent.com/CatVodTVOfficial/CatVodTVSpider/master/app/src/main/java/com/github/catvod/utils/Misc.java > app/src/main/java/com/github/catvod/utils/Misc.java
+         curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/utils/Misc.java > app/src/main/java/com/github/catvod/utils/Misc.java
          
          #添加JavDb
          #cp ../app/src/main/java/com/github/catvod/spider/JavDb.java app/src/main/java/com/github/catvod/spider/JavDb.java
 
          #添加AppYsV2
-         #curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/spider/AppYsV2.java > app/src/main/java/com/github/catvod/spider/AppYsV2.java
-         curl -L https://raw.githubusercontent.com/CatVodTVOfficial/CatVodTVSpider/master/app/src/main/java/com/github/catvod/spider/AppYsV2.java > app/src/main/java/com/github/catvod/spider/AppYsV2.java
+         curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/spider/AppYsV2.java > app/src/main/java/com/github/catvod/spider/AppYsV2.java
          sed -i 's/com.github.catvod.utils.okhttp.OkHttpUtil/com.github.catvod.net.OkHttp/g;s/OkHttpUtil/OkHttp/g' app/src/main/java/com/github/catvod/spider/AppYsV2.java
          #curl -L https://github.com/xxxyyy888/CatVodSpider/raw/main/app/src/main/java/com/github/catvod/spider/AppYsV2.java > app/src/main/java/com/github/catvod/spider/AppYsV2.java
          
