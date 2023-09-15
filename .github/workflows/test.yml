@@ -22,52 +22,6 @@ jobs:
         rm -rf jar/custom_spider.jar
         git clone --recurse-submodules https://github.com/FongMi/CatVodSpider project
       
-    - name: Customize Spider
-      working-directory: ./project
-      run: |
-         #添加Misc
-         curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/utils/Misc.java > app/src/main/java/com/github/catvod/utils/Misc.java
-        
-         #添加AppYsV2
-         curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/spider/AppYsV2.java > app/src/main/java/com/github/catvod/spider/AppYsV2.java
-         #sed -i 's/com.github.catvod.utils.okhttp.OkHttpUtil/com.github.catvod.net.OkHttp/g;s/OkHttpUtil/OkHttp/g' app/src/main/java/com/github/catvod/spider/AppYsV2.java
-         #curl -L https://github.com/xxxyyy888/CatVodSpider/raw/main/app/src/main/java/com/github/catvod/spider/AppYsV2.java > app/src/main/java/com/github/catvod/spider/AppYsV2.java
-         
-         #添加Live2Vod
-         #curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/bean/Live.java > app/src/main/java/com/github/catvod/bean/Live.java
-         #curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/spider/Live2Vod.java > app/src/main/java/com/github/catvod/spider/Live2Vod.java         
-         #sed -i 's/com.github.catvod.utils.okhttp.OkHttpUtil/com.github.catvod.net.OkHttp/g;s/OkHttpUtil/OkHttp/g' app/src/main/java/com/github/catvod/spider/Live2Vod.java
-
-         #添加豆瓣，6V，飘花磁力
-         curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/spider/Douban.java > app/src/main/java/com/github/catvod/spider/Douban.java
-         curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/spider/SixV.java > app/src/main/java/com/github/catvod/spider/SixV.java
-         curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/spider/PiaoHua.java > app/src/main/java/com/github/catvod/spider/PiaoHua.java
-         
-         #添加XYQBiu.java
-         #cp ../app/src/main/java/com/github/catvod/spider/XYQBiu.java app/src/main/java/com/github/catvod/spider/XYQBiu.java
-         #cp ../app/src/main/java/com/github/catvod/net/OKCallBack.java app/src/main/java/com/github/catvod/net/OKCallBack.java
-         #sed -i 's/com.github.catvod.net.OkHttpUtil/com.github.catvod.net.OkHttp/g;s/OkHttpUtil/OkHttp/g' app/src/main/java/com/github/catvod/spider/XYQBiu.java
-         
-         #简体化阿里云盘
-         sed -i 's/原畫/原画/g;s/普畫/普画/g' app/src/main/java/com/github/catvod/spider/Ali.java
-         sed -i 's/原畫/原画/g;s/普畫/普画/g;s/阿里雲盤/阿里云盘/g' app/src/main/java/com/github/catvod/api/AliYun.java
-         curl -L https://github.com/oiltea/CatVodSpider/raw/9ab5cc627be4096db11bca9ee9177c13014ddadd/app/src/main/java/com/github/catvod/spider/Wogg.java > app/src/main/java/com/github/catvod/spider/Wogg.java
-         
-         #
-         sed -i 's/https:\/\/s1.ax1x.com\/2023\/05\/04\/p9tgI81.png/http:\/\/image.coolapk.com\/feed\/2023\/0817\/10\/15491134_1b0929b1_9775_1639_274@512x512.png/g' app/src/main/java/com/github/catvod/utils/Image.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Ysj.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Dm84.java
-         rm -rf app/src/main/java/com/github/catvod/spider/JSDemo.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Doll.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Ying.java
-         rm -rf app/src/main/java/com/github/catvod/spider/TuGou.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Miss.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Local.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Jable.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Supjav.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Hanime.java
-         #rm -rf app/src/main/java/com/github/catvod/spider/Zhaozy.java                  
-         rm -rf app/src/main/java/com/github/catvod/spider/Eighteen.java
 
     - name: Build the app
       working-directory: ./project
