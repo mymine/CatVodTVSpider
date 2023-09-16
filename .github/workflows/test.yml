@@ -20,9 +20,18 @@ jobs:
       run: |
         rm -rf project
         rm -rf jar/custom_spider.jar
-        git clone --recurse-submodules https://github.com/FongMi/CatVodSpider project
-      
+        git clone --recurse-submodules https://github.com/zhixc/CatVodTVSpider project
 
+    - name: diy the app
+      working-directory: ./project     
+         rm -rf app/src/main/java/com/github/catvod/spider/*
+         curl -Lhttps://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/spider/Init.java > app/src/main/java/com/github/catvod/spider/Init.java
+         #添加AppYsV2
+         #curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/spider/AppYsV2.java > app/src/main/java/com/github/catvod/spider/AppYsV2.java
+         #curl -L https://raw.githubusercontent.com/CatVodTVOfficial/CatVodTVSpider/master/app/src/main/java/com/github/catvod/spider/AppYsV2.java > app/src/main/java/com/github/catvod/spider/AppYsV2.java
+         #sed -i 's/com.github.catvod.utils.okhttp.OkHttpUtil/com.github.catvod.net.OkHttp/g;s/OkHttpUtil/OkHttp/g' app/src/main/java/com/github/catvod/spider/AppYsV2.java
+         #curl -L https://github.com/xxxyyy888/CatVodSpider/raw/main/app/src/main/java/com/github/catvod/spider/AppYsV2.java > app/src/main/java/com/github/catvod/spider/AppYsV2.java
+        
     - name: Build the app
       working-directory: ./project
       run: |        
@@ -47,10 +56,3 @@ jobs:
       with:
         name: Spider
         path: ./jar/custom_spider.jar
-
-    - name: Update spider jar      
-      uses: EndBug/add-and-commit@v9.1.3
-      with:
-        default_author: github_actions
-        message: 'update spider jar'
-        add: "['./jar/custom_spider.jar', './jar/custom_spider.jar.md5']"        
