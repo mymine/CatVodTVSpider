@@ -25,6 +25,7 @@ jobs:
     - name: diy the app
       working-directory: ./project     
       run: |
+         sed -i '/minifyEnabled/g' app/build.gradle
          rm -rf app/src/main/java/com/github/catvod/spider/*
          curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/spider/Init.java > app/src/main/java/com/github/catvod/spider/Init.java
          #添加AppYsV2
@@ -56,4 +57,4 @@ jobs:
       uses: actions/upload-artifact@v3.1.2
       with:
         name: Spider
-        path: ./jar/custom_spider.jar
+        path: ./**/*.dex
