@@ -25,8 +25,8 @@ jobs:
     - name: diy the app
       working-directory: ./project     
       run: |
-         rm -rf app/src/main/java/com/github/catvod/spider/*
-         curl -Lhttps://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/spider/Init.java > app/src/main/java/com/github/catvod/spider/Init.java
+         #rm -rf app/src/main/java/com/github/catvod/spider/*
+         #curl -Lhttps://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/spider/Init.java > app/src/main/java/com/github/catvod/spider/Init.java
          #添加AppYsV2
          #curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/spider/AppYsV2.java > app/src/main/java/com/github/catvod/spider/AppYsV2.java
          #curl -L https://raw.githubusercontent.com/CatVodTVOfficial/CatVodTVSpider/master/app/src/main/java/com/github/catvod/spider/AppYsV2.java > app/src/main/java/com/github/catvod/spider/AppYsV2.java
