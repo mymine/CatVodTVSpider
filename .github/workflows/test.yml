@@ -20,7 +20,7 @@ jobs:
       run: |
         rm -rf project
         rm -rf jar/custom_spider.jar
-        git clone --recurse-submodules https://github.com/zhixc/CatVodTVSpider project
+        git clone --recurse-submodules https://github.com/FongMi/CatVodSpider project
 
     - name: diy the app
       working-directory: ./project     
