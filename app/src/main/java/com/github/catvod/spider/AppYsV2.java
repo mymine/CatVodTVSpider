@@ -31,13 +31,13 @@ public class AppYsV2 extends Spider {
 
     @Override
     public void init(Context context, String extend) {
-        super.init(context, extend);
+        public void init(Context context,String extend) throws Exception{
         try {
             extInfos = extend.split("###");
         } catch (Throwable th) {
         }
     }
-
+    }
     @Override
     public String homeContent(boolean filter) {
         try {
