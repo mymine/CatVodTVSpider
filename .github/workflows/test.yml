@@ -20,20 +20,19 @@ jobs:
       run: |
         rm -rf project
         rm -rf jar/custom_spider.jar
-        git clone --recurse-submodules https://github.com/FongMi/CatVodSpider project
+        git clone --recurse-submodules https://github.com/zhixc/CatVodTVSpider project
 
     - name: diy the app
       working-directory: ./project     
       run: |
-         sed -i '/minifyEnabled/g' app/build.gradle
+         #禁止混淆
+         #sed -i '/minifyEnabled/g' app/build.gradle
          rm -rf app/src/main/java/com/github/catvod/spider/*
-         #添加Misc
-         #curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/utils/Misc.java > app/src/main/java/com/github/catvod/utils/Misc.java
          curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/spider/Init.java > app/src/main/java/com/github/catvod/spider/Init.java
          #添加AppYsV2
          curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/spider/AppYsV2.java > app/src/main/java/com/github/catvod/spider/AppYsV2.java
          #curl -L https://raw.githubusercontent.com/CatVodTVOfficial/CatVodTVSpider/master/app/src/main/java/com/github/catvod/spider/AppYsV2.java > app/src/main/java/com/github/catvod/spider/AppYsV2.java
-         sed -i 's/com.github.catvod.utils.okhttp.OkHttpUtil/com.github.catvod.net.OkHttp/g;s/OkHttpUtil/OkHttp/g' app/src/main/java/com/github/catvod/spider/AppYsV2.java
+         #sed -i 's/com.github.catvod.utils.okhttp.OkHttpUtil/com.github.catvod.net.OkHttp/g;s/OkHttpUtil/OkHttp/g' app/src/main/java/com/github/catvod/spider/AppYsV2.java
          #curl -L https://github.com/xxxyyy888/CatVodSpider/raw/main/app/src/main/java/com/github/catvod/spider/AppYsV2.java > app/src/main/java/com/github/catvod/spider/AppYsV2.java
         
     - name: Build the app
@@ -42,9 +41,22 @@ jobs:
          chmod +x gradlew
          ./gradlew assemblerelease --build-cache --parallel --daemon --warning-mode all
          
-         
+    - name: Customize Spider Jar
+      working-directory: ./project
+      run: |        
+         rm -rf jar/custom_spider.jar
+         rm -rf jar/spider.jar/original/META-INF
+         curl -L https://github.com/iBotPeaches/Apktool/releases/download/v2.7.0/apktool_2.7.0.jar > jar/3rd/apktool_2.7.0.jar
+         #未混淆classes.dex目录:app/build/intermediates/dex/release/mergeDexRelease/         
+         java -jar jar/3rd/baksmali-2.5.2.jar d app/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex -o jar/Smali_classes
+         mkdir -p jar/spider.jar/smali/com/github/catvod/
+         mv jar/Smali_classes/com/github/catvod/spider jar/spider.jar/smali/com/github/catvod/         
+         java -jar jar/3rd/apktool_2.7.0.jar b jar/spider.jar -c
+         mv jar/spider.jar/dist/dex.jar ../jar/custom_spider.jar
+         md5=($(md5sum ../jar/custom_spider.jar))
+         echo $md5 > ../jar/custom_spider.jar.md5
     - name: Upload APK
       uses: actions/upload-artifact@v3.1.2
       with:
         name: Spider
-        path: ./**/*.dex
+        path: ./jar/custom_spider.jar
