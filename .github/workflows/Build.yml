@@ -58,6 +58,7 @@ jobs:
          rm -rf app/src/main/java/com/github/catvod/spider/JSDemo.java
          rm -rf app/src/main/java/com/github/catvod/spider/Doll.java
          rm -rf app/src/main/java/com/github/catvod/spider/Ying.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Kugou.java
          rm -rf app/src/main/java/com/github/catvod/spider/TuGou.java
          rm -rf app/src/main/java/com/github/catvod/spider/Miss.java
          rm -rf app/src/main/java/com/github/catvod/spider/Star.java
