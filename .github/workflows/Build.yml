@@ -46,8 +46,8 @@ jobs:
          #sed -i 's/com.github.catvod.net.OkHttpUtil/com.github.catvod.net.OkHttp/g;s/OkHttpUtil/OkHttp/g' app/src/main/java/com/github/catvod/spider/XYQBiu.java
          
          #简体化阿里云盘
-         sed -i 's/原畫/原画/g;s/普畫/普画/g' app/src/main/java/com/github/catvod/spider/Ali.java
-         sed -i 's/原畫/原画/g;s/普畫/普画/g;s/阿里雲盤/阿里云盘/g' app/src/main/java/com/github/catvod/api/AliYun.java
+         sed -i 's/原畫/原画/g;s/普畫/普画/g;s/極速/极速/g' app/src/main/java/com/github/catvod/spider/Ali.java
+         sed -i 's/原畫/原画/g;s/普畫/普画/g;s/極速/极速/g;s/阿里雲盤/阿里云盘/g' app/src/main/java/com/github/catvod/api/AliYun.java
          curl -L https://github.com/oiltea/CatVodSpider/raw/9ab5cc627be4096db11bca9ee9177c13014ddadd/app/src/main/java/com/github/catvod/spider/Wogg.java > app/src/main/java/com/github/catvod/spider/Wogg.java
          
          #
