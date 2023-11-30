@@ -13,7 +13,7 @@ jobs:
     - name: set up JDK
       uses: actions/setup-java@v3.11.0
       with:
-        java-version: '18'
+        java-version: '19'
         distribution: 'temurin'
         
     - name: Clone project
