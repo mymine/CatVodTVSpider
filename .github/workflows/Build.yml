@@ -33,7 +33,7 @@ jobs:
          #sed -i 's/com.github.catvod.utils.okhttp.OkHttpUtil/com.github.catvod.net.OkHttp/g;s/OkHttpUtil/OkHttp/g' app/src/main/java/com/github/catvod/spider/Live2Vod.java
 
          #飘花磁力
-         cp ../app/src/main/java/com/github/catvod/spider/PiaoHua.java > app/src/main/java/com/github/catvod/spider/PiaoHua.java
+         cp ../app/src/main/java/com/github/catvod/spider/PiaoHua.java app/src/main/java/com/github/catvod/spider/PiaoHua.java
          
          #添加XYQBiu.java
          #cp ../app/src/main/java/com/github/catvod/spider/XYQBiu.java app/src/main/java/com/github/catvod/spider/XYQBiu.java
