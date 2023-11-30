@@ -27,9 +27,6 @@ jobs:
       run: |
          #sed -i 's/gradle-7.4.2-all/gradle-7.5-bin/g' gradle/wrapper/gradle-wrapper.properties
          
-         #添加JavDb
-         #cp ../app/src/main/java/com/github/catvod/spider/JavDb.java app/src/main/java/com/github/catvod/spider/JavDb.java
-
          #添加Live2Vod
          #curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/bean/Live.java > app/src/main/java/com/github/catvod/bean/Live.java
          #curl -L https://github.com/zhixc/CatVodTVSpider/raw/main/app/src/main/java/com/github/catvod/spider/Live2Vod.java > app/src/main/java/com/github/catvod/spider/Live2Vod.java         
