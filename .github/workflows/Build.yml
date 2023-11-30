@@ -13,7 +13,7 @@ jobs:
     - name: set up JDK
       uses: actions/setup-java@v3.11.0
       with:
-        java-version: '18'
+        java-version: '20'
         distribution: 'temurin'
         
     - name: Clone project
@@ -25,12 +25,8 @@ jobs:
     - name: Customize Spider
       working-directory: ./project
       run: |
-         #sed -i 's/gradle-7.4.2-all/gradle-7.5-bin/g' gradle/wrapper/gradle-wrapper.properties
+         sed -i 's/gradle-7.4.2-all/gradle-7.5-bin/g' gradle/wrapper/gradle-wrapper.properties
          
-         #添加Live2Vod
-         #cp ../app/src/main/java/com/github/catvod/spider/Live2Vod.java app/src/main/java/com/github/catvod/spider/Live2Vod.java         
-         #sed -i 's/com.github.catvod.utils.okhttp.OkHttpUtil/com.github.catvod.net.OkHttp/g;s/OkHttpUtil/OkHttp/g' app/src/main/java/com/github/catvod/spider/Live2Vod.java
-
          #飘花磁力
          cp ../app/src/main/java/com/github/catvod/spider/PiaoHua.java app/src/main/java/com/github/catvod/spider/PiaoHua.java
          
