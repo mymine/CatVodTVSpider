@@ -13,7 +13,7 @@ jobs:
     - name: set up JDK
       uses: actions/setup-java@v3.11.0
       with:
-        java-version: '19'
+        java-version: '18'
         distribution: 'temurin'
         
     - name: Clone project
@@ -25,7 +25,7 @@ jobs:
     - name: Customize Spider
       working-directory: ./project
       run: |
-         sed -i 's/gradle-7.4.2-all/gradle-8.5-bin/g' gradle/wrapper/gradle-wrapper.properties
+         sed -i 's/gradle-7.4.2-all/gradle-7.5-bin/g' gradle/wrapper/gradle-wrapper.properties
          
          #飘花磁力
          cp ../app/src/main/java/com/github/catvod/spider/PiaoHua.java app/src/main/java/com/github/catvod/spider/PiaoHua.java
