@@ -39,19 +39,21 @@ jobs:
          sed -i 's/原畫/原画/g;s/普畫/普画/g;s/轉存/转存/g;s/極速/极速/g' app/src/main/java/com/github/catvod/spider/Ali.java
          sed -i 's/原畫/原画/g;s/普畫/普画/g;s/轉存/转存/g;s/極速/极速/g;s/阿里雲盤/阿里云盘/g' app/src/main/java/com/github/catvod/api/AliYun.java
          sed -i 's/thread = 10/thread = 64/g' app/src/main/java/com/github/catvod/api/AliYun.java
-         #
+         
          #sed -i 's/https:\/\/s1.ax1x.com\/2023\/05\/04\/p9tgI81.png/http:\/\/image.coolapk.com\/feed\/2023\/0817\/10\/15491134_1b0929b1_9775_1639_274@512x512.png/g' app/src/main/java/com/github/catvod/utils/Image.java
          rm -rf app/src/main/java/com/github/catvod/spider/JSDemo.java
          rm -rf app/src/main/java/com/github/catvod/spider/Ysj.java
          rm -rf app/src/main/java/com/github/catvod/spider/Dm84.java
          rm -rf app/src/main/java/com/github/catvod/spider/JSDemo.java
          rm -rf app/src/main/java/com/github/catvod/spider/Doll.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Duanju.java
          rm -rf app/src/main/java/com/github/catvod/spider/Ying.java
          rm -rf app/src/main/java/com/github/catvod/spider/Kugou.java
          rm -rf app/src/main/java/com/github/catvod/spider/TuGou.java
          rm -rf app/src/main/java/com/github/catvod/spider/Miss.java
          rm -rf app/src/main/java/com/github/catvod/spider/Star.java
          rm -rf app/src/main/java/com/github/catvod/spider/Local.java
+         rm -rf app/src/main/java/com/github/catvod/spider/JustLive.java
          rm -rf app/src/main/java/com/github/catvod/spider/Jable.java
          rm -rf app/src/main/java/com/github/catvod/spider/Supjav.java
          rm -rf app/src/main/java/com/github/catvod/spider/Hanime.java
