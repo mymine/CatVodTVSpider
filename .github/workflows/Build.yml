@@ -66,6 +66,8 @@ jobs:
          rm -rf app/src/main/java/com/github/catvod/spider/Notice.java
          rm -rf app/src/main/java/com/github/catvod/spider/YingShi.java                  
          rm -rf app/src/main/java/com/github/catvod/spider/Eighteen.java
+         rm -rf app/src/main/java/com/github/catvod/spider/NiNi.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Cs1369.java
 
     - name: Build the app
       working-directory: ./project
