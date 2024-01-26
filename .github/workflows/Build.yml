@@ -29,8 +29,7 @@ jobs:
          sed -i 's/www.aliyundrive.com/(www.aliyundrive.com|www.alipan.com)/g' app/src/main/java/com/github/catvod/spider/Zhaozy.java
          
          curl -L https://raw.githubusercontent.com/FongMi/CatVodSpider/56e60854cfc91282548e2686e7c79e00bf11987a/app/src/main/java/com/github/catvod/spider/Dovx.java > app/src/main/java/com/github/catvod/spider/Dovx.java
-        
-         
+                 
          #飘花磁力
          cp ../app/src/main/java/com/github/catvod/spider/PiaoHua.java app/src/main/java/com/github/catvod/spider/PiaoHua.java
          
@@ -87,8 +86,8 @@ jobs:
          mv jar/Smali_classes/com/github/catvod/spider jar/spider.jar/smali/com/github/catvod/         
          java -jar jar/3rd/apktool_2.7.0.jar b jar/spider.jar -c
          mv jar/spider.jar/dist/dex.jar ../jar/custom_spider.jar
-         md5=($(md5sum ../jar/custom_spider.jar))
-         echo $md5 > ../jar/custom_spider.jar.md5
+         echo $(md5sum tv.json | awk '{print $1}') > ../jar/custom_spider.jar.md5
+         
     - name: Upload APK
       uses: actions/upload-artifact@v3.1.2
       with:
