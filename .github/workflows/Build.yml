@@ -84,6 +84,7 @@ jobs:
          mv jar/Smali_classes/com/github/catvod/spider jar/spider.jar/smali/com/github/catvod/         
          java -jar jar/3rd/apktool_2.7.0.jar b jar/spider.jar -c
          mv jar/spider.jar/dist/dex.jar ../jar/custom_spider.jar
+         #md5=($(md5sum ../jar/custom_spider.jar))
          echo $(md5sum ../jar/custom_spider.jar | awk '{print $1}') > ../jar/custom_spider.jar.md5
          
     - name: Upload APK
