@@ -47,6 +47,7 @@ jobs:
          rm -rf app/src/main/java/com/github/catvod/spider/Ysj.java
          rm -rf app/src/main/java/com/github/catvod/spider/Dm84.java
          rm -rf app/src/main/java/com/github/catvod/spider/Doll.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Douban.java
          rm -rf app/src/main/java/com/github/catvod/spider/Duanju.java
          rm -rf app/src/main/java/com/github/catvod/spider/Ying.java
          rm -rf app/src/main/java/com/github/catvod/spider/Kugou.java
