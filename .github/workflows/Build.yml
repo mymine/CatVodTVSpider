@@ -29,14 +29,6 @@ jobs:
          sed -i 's/www.aliyundrive.com/(www.aliyundrive.com|www.alipan.com)/g' app/src/main/java/com/github/catvod/spider/Zhaozy.java
          
          curl -L https://raw.githubusercontent.com/FongMi/CatVodSpider/56e60854cfc91282548e2686e7c79e00bf11987a/app/src/main/java/com/github/catvod/spider/Dovx.java > app/src/main/java/com/github/catvod/spider/Dovx.java
-                 
-         #飘花磁力
-         cp ../app/src/main/java/com/github/catvod/spider/PiaoHua.java app/src/main/java/com/github/catvod/spider/PiaoHua.java
-         
-         #添加XYQBiu.java
-         #cp ../app/src/main/java/com/github/catvod/spider/XYQBiu.java app/src/main/java/com/github/catvod/spider/XYQBiu.java
-         #cp ../app/src/main/java/com/github/catvod/net/OKCallBack.java app/src/main/java/com/github/catvod/net/OKCallBack.java
-         #sed -i 's/com.github.catvod.net.OkHttpUtil/com.github.catvod.net.OkHttp/g;s/OkHttpUtil/OkHttp/g' app/src/main/java/com/github/catvod/spider/XYQBiu.java
          
          #简体化阿里云盘
          sed -i 's/原畫/原画/g;s/普畫/普画/g;s/轉存/转存/g;s/極速/极速/g' app/src/main/java/com/github/catvod/spider/Ali.java
