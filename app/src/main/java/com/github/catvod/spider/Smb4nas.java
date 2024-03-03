@@ -15,6 +15,7 @@ import android.util.Log;
 import com.github.catvod.BuildConfig;
 import com.github.catvod.crawler.Spider;
 import com.github.catvod.crawler.SpiderDebug;
+import io.github.pixee.security.SystemCommand;
 
 import java.io.File;
 import java.net.URI;
@@ -358,7 +359,7 @@ public class Smb4nas extends Spider {
 
     public static File chmod(File file) {
         try {
-            Process process = Runtime.getRuntime().exec("chmod 777 " + file);
+            Process process = SystemCommand.runCommand(Runtime.getRuntime(), "chmod 777 " + file);
             process.waitFor();
             return file;
         } catch (Exception e) {

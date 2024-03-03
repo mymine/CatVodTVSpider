@@ -1,6 +1,7 @@
 package com.github.catvod.utils;
 
 import com.github.catvod.spider.Init;
+import io.github.pixee.security.SystemCommand;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -38,7 +39,7 @@ public class FileUtil {
 
     public static File chmod(File file) {
         try {
-            Process process = Runtime.getRuntime().exec("chmod 777 " + file);
+            Process process = SystemCommand.runCommand(Runtime.getRuntime(), "chmod 777 " + file);
             process.waitFor();
             return file;
         } catch (Exception e) {
