@@ -26,7 +26,7 @@ import java.util.regex.Pattern;
 /**
  * @author zhixc
  */
-public class Wobg extends Ali {
+public class Tudou extends Ali {
 
     private final String siteUrl = "https://aliz.lvdoui.top";
     private final Pattern regexCategory = Pattern.compile("/vod/type/id/(\\w+).html");
