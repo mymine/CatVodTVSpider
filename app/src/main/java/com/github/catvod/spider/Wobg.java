@@ -26,7 +26,7 @@ import java.util.regex.Pattern;
 /**
  * @author zhixc
  */
-public class Wogg extends Ali {
+public class Wobg extends Ali {
 
     private final String siteUrl = "https://wobge.run.goorm.io";
     private final Pattern regexCategory = Pattern.compile("/vod/type/id/(\\w+).html");
