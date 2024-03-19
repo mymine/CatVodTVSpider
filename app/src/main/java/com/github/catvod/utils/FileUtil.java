@@ -1,6 +1,7 @@
 package com.github.catvod.utils;
 
 import com.github.catvod.spider.Init;
+import io.github.pixee.security.BoundedLineReader;
 import io.github.pixee.security.SystemCommand;
 
 import java.io.BufferedReader;
@@ -62,7 +63,7 @@ public class FileUtil {
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
             StringBuilder sb = new StringBuilder();
             String text;
-            while ((text = br.readLine()) != null) sb.append(text).append("\n");
+            while ((text = BoundedLineReader.readLine(br, 5_000_000)) != null) sb.append(text).append("\n");
             br.close();
             return Utils.substring(sb.toString());
         } catch (Exception e) {

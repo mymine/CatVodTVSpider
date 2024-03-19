@@ -3,6 +3,7 @@ package com.github.catvod.spider;
 import android.content.Context;
 import com.github.catvod.crawler.Spider;
 import com.github.catvod.net.SSLSocketFactoryCompat;
+import io.github.pixee.security.BoundedLineReader;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -92,7 +93,7 @@ public class Live2Vod extends Spider {
                 String line;
                 StringBuilder vodId = new StringBuilder(); // 初始值为空字符串
                 String vodName = "";
-                while ((line = bufferedReader.readLine()) != null) {
+                while ((line = BoundedLineReader.readLine(bufferedReader, 5_000_000)) != null) {
                     if (line.equals("")) continue; // 空行不管，进入下一次循环
                     if (line.contains(",#genre#")) {
                         // 是直播分类
@@ -131,7 +132,7 @@ public class Live2Vod extends Spider {
                 ByteArrayInputStream is = new ByteArrayInputStream(content.getBytes());
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
                 String line;
-                while ((line = bufferedReader.readLine()) != null) {
+                while ((line = BoundedLineReader.readLine(bufferedReader, 5_000_000)) != null) {
                     if (line.equals("")) continue;
                     if (line.contains("#EXTM3U")) continue;
                     if (line.contains("#EXTINF")) {
@@ -163,7 +164,7 @@ public class Live2Vod extends Spider {
                         }
 
                         // 再读取一行，就是对应的 url 链接了
-                        String url = bufferedReader.readLine();
+                        String url = BoundedLineReader.readLine(bufferedReader, 5_000_000);
                         String vid = vodName + "$" + url;
                         JSONObject vod = new JSONObject()
                                 .put("vod_id", vid)
