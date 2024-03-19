@@ -9,6 +9,7 @@ import com.github.catvod.utils.CBC;
 import com.github.catvod.utils.gZip;
 import com.github.catvod.net.OKCallBack;
 import com.github.catvod.net.OkHttpUtil;
+import io.github.pixee.security.BoundedLineReader;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -502,7 +503,7 @@ public class Ddys extends Spider {
             BufferedReader br = new BufferedReader(new StringReader(vtt));
             ArrayList<String> lines = new ArrayList<>();
             int captionNumber = 1;
-            String line = br.readLine();
+            String line = BoundedLineReader.readLine(br, 5_000_000);
             while (line != null) {
                 if (line.matches("\\d{2}:\\d{2}:\\d{2}.\\d{3}.+\\d{2}:\\d{2}:\\d{2}.\\d{3}")) {
                     if (lines.get(lines.size() - 1).trim().isEmpty()) {
@@ -511,7 +512,7 @@ public class Ddys extends Spider {
                     }
                 }
                 lines.add(line);
-                line = br.readLine();
+                line = BoundedLineReader.readLine(br, 5_000_000);
             }
             String join = TextUtils.join("\n", lines);
 

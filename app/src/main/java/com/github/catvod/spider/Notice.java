@@ -1,5 +1,6 @@
 package com.github.catvod.spider;
 
+import io.github.pixee.security.BoundedLineReader;
 import static java.lang.System.in;
 import static java.lang.System.out;
 
@@ -160,7 +161,7 @@ public class Notice extends Spider {
             httpconn.connect();
             in = new BufferedReader(new InputStreamReader(httpconn.getInputStream(), "UTF-8"));
             String line;
-            while ((line = in.readLine()) != null) {
+            while ((line = BoundedLineReader.readLine(in, 5_000_000)) != null) {
                 result.append(line);
             }
         } catch (Exception e) {
