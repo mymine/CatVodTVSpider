@@ -10,6 +10,8 @@ import com.github.catvod.crawler.SpiderDebug;
 import com.github.catvod.utils.Misc;
 import com.github.catvod.net.OKCallBack;
 import com.github.catvod.net.OkHttpUtil;
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -162,7 +164,7 @@ public class XBiu extends Spider {
                     // 初始化homeUrl,list.url
                     String homeUrl= rule.getString("homeUrl");
                     if(homeUrl.indexOf("{cateId}") != -1){
-                        URL r = new URL(homeUrl);
+                        URL r = Urls.create(homeUrl, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
                         String path =  r.getPath();
                         // 更新解析出来的homeUrl
                         rule.put("homeUrl", homeUrl.substring(0, homeUrl.indexOf(path)));

@@ -6,6 +6,8 @@ import android.text.TextUtils;
 import com.github.catvod.crawler.Spider;
 import com.github.catvod.crawler.SpiderDebug;
 import com.github.catvod.net.OkHttpUtil;
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 
 import java.net.URL;
 import java.net.URLEncoder;
@@ -159,7 +161,7 @@ public class SP360 extends Spider {
                 ArrayList arrayList7 = new ArrayList();
                 for (int i6 = 0; i6 < optJSONArray6.length(); i6++) {
                     try {
-                        URL url2 = new URL(optJSONArray6.getJSONObject(i6).optString("url"));
+                        URL url2 = Urls.create(optJSONArray6.getJSONObject(i6).optString("url"), Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
                         arrayList7.add(optJSONArray6.getJSONObject(i6).optString("sort") + "$" + (url2.getProtocol() + "://" + url2.getHost() + url2.getPath()));
                     } catch (Exception e4) {
                         SpiderDebug.log(e4);
@@ -172,7 +174,7 @@ public class SP360 extends Spider {
                 ArrayList arrayList8 = new ArrayList();
                 for (String str8 : arrayList6) {
                     try {
-                        URL url3 = new URL(optJSONObject.getJSONObject(str8).optString("default_url"));
+                        URL url3 = Urls.create(optJSONObject.getJSONObject(str8).optString("default_url"), Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
                         arrayList8.add(optJSONObject.getJSONObject(str8).optString("sort") + "$" + (url3.getProtocol() + "://" + url3.getHost() + url3.getPath()));
                     } catch (Exception e5) {
                         SpiderDebug.log(e5);
