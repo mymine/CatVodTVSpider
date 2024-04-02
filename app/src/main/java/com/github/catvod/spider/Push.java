@@ -26,9 +26,9 @@ public class Push extends Ali {
 
     @Override
     public String playerContent(String flag, String id, List<String> vipFlags) {
-        if (flag.equals("直連")) return Result.get().url(id).string();
-        if (flag.equals("嗅探")) return Result.get().parse().url(id).string();
-        if (flag.equals("解析")) return Result.get().parse().jx().url(id).string();
+        if ("直連".equals(flag)) return Result.get().url(id).string();
+        if ("嗅探".equals(flag)) return Result.get().parse().url(id).string();
+        if ("解析".equals(flag)) return Result.get().parse().jx().url(id).string();
         return super.playerContent(flag, id, vipFlags);
     }
 

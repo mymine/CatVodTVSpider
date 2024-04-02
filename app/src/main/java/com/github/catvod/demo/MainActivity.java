@@ -188,7 +188,7 @@ public class MainActivity extends Activity {
         HashMap<String, ArrayList<HashMap<String, String>>> res_extend = new HashMap<>();
         System.out.println("==========homeContent:=======\n");
         String strhomeContent = spider.homeContent(true);
-        if (strhomeContent.equals("")) {
+        if ("".equals(strhomeContent)) {
             System.out.println("homeContent返回为空");
             System.exit(0);
         }
@@ -250,7 +250,7 @@ public class MainActivity extends Activity {
         // 标题栏下的视频内容
         System.out.println("\r\n==========categoryContent:=======\r\n");
         String strcategoryContent = spider.categoryContent(tid, "1", true, extend);
-        if (strcategoryContent.equals("")) {
+        if ("".equals(strcategoryContent)) {
             System.out.println("categoryContent返回为空");
             System.exit(0);
         }
@@ -297,7 +297,7 @@ public class MainActivity extends Activity {
         System.out.println("你测试的链接是:" + ids0);
         JSONArray data = new JSONArray();
         String strdetailContent = spider.detailContent(ids);
-        if (strdetailContent.equals("")) {
+        if ("".equals(strdetailContent)) {
             System.out.println("detailContent返回为空");
             System.exit(0);
         }
@@ -367,7 +367,7 @@ public class MainActivity extends Activity {
     public static List<String> test_search(Spider spider, String key) throws Exception {
         List<String> res = new ArrayList<>();
         System.out.println("\r\n==========searchContent=======\r\n");
-        if (key.equals("")) {
+        if ("".equals(key)) {
             System.out.println("关键字为空，使用默认值==>斗罗大陆\r\n");
             key = "斗罗大陆";
         } else {
@@ -375,7 +375,7 @@ public class MainActivity extends Activity {
 
         }
         String strsearchContent = spider.searchContent(key, true);
-        if (strsearchContent.equals("")) {
+        if ("".equals(strsearchContent)) {
             System.out.println("searchContent返回为空");
             System.exit(0);
         }

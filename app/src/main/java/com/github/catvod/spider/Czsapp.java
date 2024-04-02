@@ -212,17 +212,17 @@ public class Czsapp extends Spider {
                     try {
                         String substring = trim2.substring(0, 2);
                         String substring2 = trim2.substring(3);
-                        if (substring.equals("类型")) {
+                        if ("类型".equals(substring)) {
                             str3 = substring2;
-                        } else if (substring.equals("地区")) {
+                        } else if ("地区".equals(substring)) {
                             str5 = substring2;
-                        } else if (substring.equals("年份")) {
+                        } else if ("年份".equals(substring)) {
                             str4 = substring2;
-                        } else if (substring.equals("导演")) {
+                        } else if ("导演".equals(substring)) {
                             str8 = substring2;
-                        } else if (substring.equals("主演")) {
+                        } else if ("主演".equals(substring)) {
                             str7 = substring2;
-                        } else if (substring.equals("豆瓣")) {
+                        } else if ("豆瓣".equals(substring)) {
                             str6 = substring2;
                         }
                     } catch (Exception e) {

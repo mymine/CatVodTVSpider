@@ -40,7 +40,7 @@ public class Dm84 extends Spider {
         for (String text : texts) {
             if (text.isEmpty()) continue;
             String n = text.replace("按", "");
-            String v = key.equals("by") ? replaceBy(text) : text;
+            String v = "by".equals(key) ? replaceBy(text) : text;
             values.add(new Filter.Value(n, v));
         }
         return new Filter(key, name, values);

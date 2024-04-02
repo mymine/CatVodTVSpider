@@ -30,7 +30,7 @@ public class Proxy extends Spider {
         int port = 9978;
         while (port < 10000) {
             String resp = OkHttp.string("http://127.0.0.1:" + port + "/proxy?do=ck", null);
-            if (resp.equals("ok")) {
+            if ("ok".equals(resp)) {
                 SpiderDebug.log("Found local server port " + port);
                 Proxy.port = port;
                 break;

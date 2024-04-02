@@ -52,7 +52,7 @@ public class PiaoHua extends Spider {
         // 第二页
         // https://www.xpiaohua.com/column/xiju/list_2.html
         String cateURL = siteURL + "/column" + tid;
-        if (!pg.equals("1")) {
+        if (!"1".equals(pg)) {
             cateURL += "/list_" + pg + ".html";
         }
         String html = getWebContent(cateURL);
@@ -161,7 +161,7 @@ public class PiaoHua extends Spider {
     private String getActorStr(String html) {
         Pattern p1 = Pattern.compile("◎演　　员　(.*?)◎");
         Pattern p2 = Pattern.compile("◎主　　演　(.*?)◎");
-        String actor = getStrByRegex(p1, html).equals("") ? getStrByRegex(p2, html) : "";
+        String actor = "".equals(getStrByRegex(p1, html)) ? getStrByRegex(p2, html) : "";
         return actor.replaceAll("</?[^>]+>", "")
                 .replaceAll("　　　　　", "")
                 .replaceAll("&middot;", "·");

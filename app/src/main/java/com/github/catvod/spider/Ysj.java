@@ -82,7 +82,7 @@ public class Ysj extends Spider {
         if (extend.containsKey("lang")) sb.append("/lang/").append(extend.get("lang"));
         if (extend.containsKey("letter")) sb.append("/letter/").append(extend.get("letter"));
         if (extend.containsKey("year")) sb.append("/year/").append(extend.get("year"));
-        if (!pg.equals("1")) sb.append("/page/").append(pg);
+        if (!"1".equals(pg)) sb.append("/page/").append(pg);
         sb.append(".html");
         Document doc = Jsoup.parse(OkHttp.string(sb.toString(), getHeaders()));
         List<Vod> list = new ArrayList<>();

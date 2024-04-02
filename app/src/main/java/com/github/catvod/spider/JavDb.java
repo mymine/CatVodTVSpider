@@ -72,7 +72,7 @@ public class JavDb extends Spider {
             JSONObject result = new JSONObject();
             JSONArray videos = new JSONArray();
             if(tid.startsWith("/v/")){
-              if(!pg.equals("1")) return "";
+              if(!"1".equals(pg)) return "";
               String webUrl = siteUrl+tid;
               String html = OkHttp.string(webUrl, getHeaders(siteUrl));
               Document doc = Jsoup.parse(html);
@@ -137,7 +137,7 @@ public class JavDb extends Spider {
             JSONArray list = new JSONArray();
             JSONObject vodAtom = new JSONObject();
             vodAtom.put("vod_id", pgurl);
-            vodAtom.put("vod_name", !name.equals("") ? name : url);
+            vodAtom.put("vod_name", !"".equals(name) ? name : url);
             vodAtom.put("vod_pic", cover);
             vodAtom.put("type_name", "磁力链接");
             vodAtom.put("vod_content", url);

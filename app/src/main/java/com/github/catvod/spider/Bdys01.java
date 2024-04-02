@@ -76,7 +76,7 @@ public class Bdys01 extends Spider {
     protected HashMap<String, String> getHeaders(String url,String ref) {
         HashMap<String, String> headers = new HashMap<>();
         headers.put("User-Agent", "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.114 Safari/537.36");
-        if(!ref.equals("google")){
+        if(!"google".equals(ref)){
             headers.put("Authority", "www.bdys01.com");
             if(ref.length()>0){
                 headers.put("Referer", ref);
@@ -184,7 +184,7 @@ public class Bdys01 extends Spider {
             String url = siteUrl + "/s/" ;
             if (extend != null && extend.size() > 0 ) {
                 String urlformat= "";
-                if(tid.equals("a")){
+                if("a".equals(tid)){
                     urlformat= url +"{s}/"+ pg +"?&area={area}&year={year}&order={order}";
                 }else {
                     urlformat= url +"{s}/"+ pg +"?&type="+tid+"&area={area}&year={year}&order={order}";
@@ -209,7 +209,7 @@ public class Bdys01 extends Spider {
                 }
                 url = urlformat;
             } else {
-                if(tid.equals("a")){
+                if("a".equals(tid)){
                     url += "all/" + pg + "?&order=0";
                 }else {
                     url += "all/" + pg + "?&type=" + tid + "&order=0";
@@ -230,7 +230,7 @@ public class Bdys01 extends Spider {
                 for (int i = 0; i < pageInfo.size(); i++) {
                     Element a = pageInfo.get(i);
                     String name = a.text();
-                    if (name.equals("尾页")) {
+                    if ("尾页".equals(name)) {
                         String gg =a.attr("href");
                         String hf ="";
                         if(gg.contains("JSESSIONID")){
@@ -312,7 +312,7 @@ public class Bdys01 extends Spider {
             for (int i = 0; i < allp.size(); i++) {
                 Element text = allp.get(i);
                 String info = text.selectFirst("strong").text();
-                if (info.equals("类型：")) {
+                if ("类型：".equals(info)) {
                     List<String> categorys = new ArrayList<>();
                     Elements aa = text.select("a");
                     for (int j = 0; j < aa.size(); j++) {
