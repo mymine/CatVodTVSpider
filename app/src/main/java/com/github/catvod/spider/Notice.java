@@ -147,7 +147,7 @@ public class Notice extends Spider {
             HttpsURLConnection httpsconn;
             httpsconn = (HttpsURLConnection) url.openConnection();
 
-            if (url.getProtocol().toLowerCase().equals("https")) {
+            if ("https".equals(url.getProtocol().toLowerCase())) {
                 httpsconn.setHostnameVerifier(DO_NOT_VERIFY);
                 httpconn = httpsconn;
             } else {	//判断是https请求还是http请求

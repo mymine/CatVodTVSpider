@@ -65,7 +65,7 @@ public class Utils {
     }
 
     public static boolean isSub(String ext) {
-        return ext.equals("srt") || ext.equals("ass") || ext.equals("ssa");
+        return "srt".equals(ext) || "ass".equals(ext) || "ssa".equals(ext);
     }
 
     public static String getExt(String name) {

@@ -50,7 +50,7 @@ public class Ying extends Spider {
     }
 
     private void checkExtend(StringBuilder sb, HashMap<String, String> extend, String column) {
-        if (!extend.containsKey(column) || extend.get(column).equals("全部") || extend.get(column).equals("更新时间")) return;
+        if (!extend.containsKey(column) || "全部".equals(extend.get(column)) || "更新时间".equals(extend.get(column))) return;
         sb.append("&").append(column).append("=").append(extend.get(column));
     }
 
@@ -87,7 +87,7 @@ public class Ying extends Spider {
         List<Vod> list = new ArrayList<>();
         StringBuilder sb = new StringBuilder();
         sb.append("?pagesize=24&pageindex=").append(Integer.parseInt(pg) - 1);
-        if (!tid.equals("全部")) sb.append("&region=").append(tid);
+        if (!"全部".equals(tid)) sb.append("&region=").append(tid);
         checkExtend(sb, extend, "genre");
         checkExtend(sb, extend, "letter");
         checkExtend(sb, extend, "year");

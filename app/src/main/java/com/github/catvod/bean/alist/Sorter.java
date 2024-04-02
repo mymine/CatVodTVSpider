@@ -20,7 +20,7 @@ public class Sorter implements Comparator<Item> {
 
     @Override
     public int compare(Item o1, Item o2) {
-        boolean asc = order.equals("asc");
+        boolean asc = "asc".equals(order);
         switch (type) {
             case "name":
                 return asc ? o1.getName().compareTo(o2.getName()) : o2.getName().compareTo(o1.getName());

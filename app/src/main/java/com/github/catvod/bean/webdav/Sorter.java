@@ -22,7 +22,7 @@ public class Sorter implements Comparator<DavResource> {
 
     @Override
     public int compare(DavResource o1, DavResource o2) {
-        boolean asc = order.equals("asc");
+        boolean asc = "asc".equals(order);
         switch (type) {
             case "name":
                 return asc ? o1.getName().compareTo(o2.getName()) : o2.getName().compareTo(o1.getName());

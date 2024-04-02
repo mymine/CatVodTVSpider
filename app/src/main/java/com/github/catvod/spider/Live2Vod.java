@@ -81,7 +81,7 @@ public class Live2Vod extends Spider {
     @Override
     public String categoryContent(String tid, String pg, boolean filter, HashMap<String, String> extend) {
         try {
-            if (!pg.equals("1")) return "";
+            if (!"1".equals(pg)) return "";
 
             int limit = 0;
             JSONArray videos = new JSONArray();
@@ -94,11 +94,11 @@ public class Live2Vod extends Spider {
                 StringBuilder vodId = new StringBuilder(); // 初始值为空字符串
                 String vodName = "";
                 while ((line = BoundedLineReader.readLine(bufferedReader, 5_000_000)) != null) {
-                    if (line.equals("")) continue; // 空行不管，进入下一次循环
+                    if ("".equals(line)) continue; // 空行不管，进入下一次循环
                     if (line.contains(",#genre#")) {
                         // 是直播分类
                         // 将数据存起来
-                        if (!vodId.toString().equals("")) {
+                        if (!"".equals(vodId.toString())) {
                             JSONObject vod = new JSONObject()
                                     .put("vod_id", vodId.substring(0, vodId.length() - 1))
                                     .put("vod_name", vodName)
@@ -117,7 +117,7 @@ public class Live2Vod extends Spider {
                     vodId.append(line).append("#");
                 }
                 // 循环结束后，最后一次的直播内容需要再写一次
-                if (!vodId.toString().equals("")) {
+                if (!"".equals(vodId.toString())) {
                     JSONObject vod = new JSONObject()
                             .put("vod_id", vodId.substring(0, vodId.length() - 1))
                             .put("vod_name", vodName)
@@ -133,7 +133,7 @@ public class Live2Vod extends Spider {
                 BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(is));
                 String line;
                 while ((line = BoundedLineReader.readLine(bufferedReader, 5_000_000)) != null) {
-                    if (line.equals("")) continue;
+                    if ("".equals(line)) continue;
                     if (line.contains("#EXTM3U")) continue;
                     if (line.contains("#EXTINF")) {
                         String vodName = "";
@@ -148,7 +148,7 @@ public class Live2Vod extends Spider {
                             vodName = tvgName.trim().replaceAll("\"", "");
                         }
 
-                        vodName = vodName.equals("") ? line.substring(line.lastIndexOf(",") + 1) : vodName;
+                        vodName = "".equals(vodName) ? line.substring(line.lastIndexOf(",") + 1) : vodName;
 
                         int groupTitleIndex = line.indexOf("group-title=");
                         int tvgLogoLength = "tvg-logo=".length();
