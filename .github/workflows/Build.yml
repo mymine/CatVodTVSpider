@@ -27,12 +27,12 @@ jobs:
       run: |
          sed -i 's/gradle-7.4.2-all/gradle-7.5-bin/g' gradle/wrapper/gradle-wrapper.properties
          
-         sed -i 's/tvfan.xxooo.cf/www.wogg.link/g' app/src/main/java/com/github/catvod/spider/Wogg.java
+         sed -i 's/tvfan.xxooo.cf/www.wogg.xyz/g' app/src/main/java/com/github/catvod/spider/Wogg.java
          sed -i 's/www.aliyundrive.com/(www.alipan.com|www.aliyundrive.com)/g' app/src/main/java/com/github/catvod/spider/Zhaozy.java
          cp ../app/src/main/java/com/github/catvod/spider/Wobg.java app/src/main/java/com/github/catvod/spider/Wobg.java
          cp ../app/src/main/java/com/github/catvod/spider/Wwgg.java app/src/main/java/com/github/catvod/spider/Wwgg.java
          cp ../app/src/main/java/com/github/catvod/spider/Tudou.java app/src/main/java/com/github/catvod/spider/Tudou.java
-         curl -L https://raw.githubusercontent.com/FongMi/CatVodSpider/56e60854cfc91282548e2686e7c79e00bf11987a/app/src/main/java/com/github/catvod/spider/Dovx.java > app/src/main/java/com/github/catvod/spider/Dovx.java
+         #curl -L https://raw.githubusercontent.com/FongMi/CatVodSpider/56e60854cfc91282548e2686e7c79e00bf11987a/app/src/main/java/com/github/catvod/spider/Dovx.java > app/src/main/java/com/github/catvod/spider/Dovx.java
          
          #简体化
          sed -i 's/預設/预设/g;s/名稱/名称/g;s/時間/时间/g' app/src/main/java/com/github/catvod/spider/AList.java
