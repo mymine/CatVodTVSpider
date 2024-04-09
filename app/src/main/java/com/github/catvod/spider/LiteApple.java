@@ -11,6 +11,7 @@ import com.github.catvod.crawler.SpiderDebug;
 import com.github.catvod.utils.Misc;
 import com.github.catvod.net.OKCallBack;
 import com.github.catvod.net.OkHttpUtil;
+import java.security.SecureRandom;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -414,7 +415,7 @@ public class LiteApple extends Spider {
 
     String randomString(int length) {
         String str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456";
-        Random random = new Random();
+        Random random = new SecureRandom();
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < length; i++) {
             int number = random.nextInt(str.length());
@@ -424,7 +425,7 @@ public class LiteApple extends Spider {
     }
 
     String randomMACAddress() {
-        Random rand = new Random();
+        Random rand = new SecureRandom();
         byte[] macAddr = new byte[6];
         rand.nextBytes(macAddr);
         macAddr[0] = (byte) (macAddr[0] & (byte) 254);  //zeroing last 2 bytes to make it unicast and locally adminstrated

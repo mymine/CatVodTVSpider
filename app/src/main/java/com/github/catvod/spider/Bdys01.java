@@ -16,6 +16,7 @@ import com.github.catvod.utils.Misc;
 import com.github.catvod.utils.gZip;
 import com.github.catvod.net.OKCallBack;
 import com.github.catvod.net.OkHttpUtil;
+import java.security.SecureRandom;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -437,7 +438,7 @@ public class Bdys01 extends Spider {
                     urldblist.add(m2[i].replace("www.bde4.cc","www.bdys01.com"));
                 }
             }
-            int index =new Random().nextInt(urldblist.size());
+            int index =new SecureRandom().nextInt(urldblist.size());
             String videourl = urldblist.get(index);
             if(videourl.contains("mp4")){
                 result.put("parse", 0);
