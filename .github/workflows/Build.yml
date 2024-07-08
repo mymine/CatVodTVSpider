@@ -44,26 +44,17 @@ jobs:
          rm -rf app/src/main/java/com/github/catvod/spider/Ysj.java
          rm -rf app/src/main/java/com/github/catvod/spider/Dm84.java
          rm -rf app/src/main/java/com/github/catvod/spider/Doll.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Douban.java
          rm -rf app/src/main/java/com/github/catvod/spider/Duanju.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Ying.java
          rm -rf app/src/main/java/com/github/catvod/spider/Kugou.java
          rm -rf app/src/main/java/com/github/catvod/spider/Miss.java
          rm -rf app/src/main/java/com/github/catvod/spider/Star.java
          rm -rf app/src/main/java/com/github/catvod/spider/Local.java
-         rm -rf app/src/main/java/com/github/catvod/spider/JustLive.java
          rm -rf app/src/main/java/com/github/catvod/spider/Jianpian.java
          rm -rf app/src/main/java/com/github/catvod/spider/Jable.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Supjav.java
          rm -rf app/src/main/java/com/github/catvod/spider/Hanime.java
          rm -rf app/src/main/java/com/github/catvod/spider/Kanqiu.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Notice.java
-         rm -rf app/src/main/java/com/github/catvod/spider/YingShi.java                  
+         rm -rf app/src/main/java/com/github/catvod/spider/Notice.java                  
          rm -rf app/src/main/java/com/github/catvod/spider/Eighteen.java
-         rm -rf app/src/main/java/com/github/catvod/spider/NiNi.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Cs1369.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Ys23.java
-         rm -rf app/src/main/java/com/github/catvod/spider/PanSou.java
          sed -i "/Doll/d" app/src/main/java/com/github/catvod/debug/MainActivity.java
 
     - name: Build the Jar
