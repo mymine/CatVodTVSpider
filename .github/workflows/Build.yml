@@ -32,7 +32,7 @@ jobs:
          cp ../app/src/main/java/com/github/catvod/spider/Wobg.java app/src/main/java/com/github/catvod/spider/Wobg.java
          cp ../app/src/main/java/com/github/catvod/spider/Duoduo.java app/src/main/java/com/github/catvod/spider/Duoduo.java
          cp ../app/src/main/java/com/github/catvod/spider/Tudou.java app/src/main/java/com/github/catvod/spider/Tudou.java
-         curl -L https://raw.githubusercontent.com/mymine/CatVodSpider/master/src/main/java/com/github/catvod/spider/JustLive.java app/src/main/java/com/github/catvod/spider/JustLive.java
+         curl -L https://raw.githubusercontent.com/mymine/CatVodSpider/master/src/main/java/com/github/catvod/spider/JustLive.java > app/src/main/java/com/github/catvod/spider/JustLive.java
          
          #简体化
          sed -i 's/預設/预设/g;s/名稱/名称/g;s/時間/时间/g' app/src/main/java/com/github/catvod/spider/AList.java
