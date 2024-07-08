@@ -28,7 +28,7 @@ import java.util.regex.Pattern;
  */
 public class Tudou extends Ali {
 
-    private final String siteUrl = "https://aliz.lvdoui.top";
+    private final String siteUrl = "https://tudou.lvdoui.top";
     private final Pattern regexCategory = Pattern.compile("/vod/type/id/(\\w+).html");
     private final Pattern regexPageTotal = Pattern.compile("\\$\\(\"\\.mac_total\"\\)\\.text\\('(\\d+)'\\);");
 
