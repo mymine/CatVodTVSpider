@@ -65,7 +65,7 @@ jobs:
          
          
          rm -rf app/src/main/java/com/github/catvod/spider/Push.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Proxy.java
+         #rm -rf app/src/main/java/com/github/catvod/spider/Proxy.java
          sed -i "/Doll/d" app/src/main/java/com/github/catvod/debug/MainActivity.java
 
     - name: Build the Jar
