@@ -27,19 +27,25 @@ jobs:
       run: |
          sed -i 's/gradle-7.4.2-all/gradle-7.5-bin/g' gradle/wrapper/gradle-wrapper.properties
          
-         #sed -i 's/www.wogg.net/www.wogg.link/g' app/src/main/java/com/github/catvod/spider/Wogg.java
-         sed -i 's/www.aliyundrive.com/(www.alipan.com|www.aliyundrive.com)/g' app/src/main/java/com/github/catvod/spider/Zhaozy.java
-         cp ../app/src/main/java/com/github/catvod/spider/Wobg.java app/src/main/java/com/github/catvod/spider/Wobg.java
-         cp ../app/src/main/java/com/github/catvod/spider/Duoduo.java app/src/main/java/com/github/catvod/spider/Duoduo.java
-         cp ../app/src/main/java/com/github/catvod/spider/Tudou.java app/src/main/java/com/github/catvod/spider/Tudou.java
          
-         #简体化
-         sed -i 's/預設/预设/g;s/名稱/名称/g;s/時間/时间/g' app/src/main/java/com/github/catvod/spider/AList.java
-         sed -i 's/預設/预设/g;s/名稱/名称/g;s/時間/时间/g' app/src/main/java/com/github/catvod/spider/WebDAV.java         
-         sed -i 's/原畫/原画/g;s/普畫/普画/g;s/轉存/转存/g;s/極速/极速/g' app/src/main/java/com/github/catvod/spider/Ali.java
-         sed -i 's/原畫/原画/g;s/普畫/普画/g;s/轉存/转存/g;s/極速/极速/g;s/阿里雲盤/阿里云盘/g' app/src/main/java/com/github/catvod/api/AliYun.java
          
          #sed -i 's/https:\/\/s1.ax1x.com\/2023\/05\/04\/p9tgI81.png/http:\/\/image.coolapk.com\/feed\/2023\/0817\/10\/15491134_1b0929b1_9775_1639_274@512x512.png/g' app/src/main/java/com/github/catvod/utils/Image.java
+         rm -rf app/src/main/java/com/github/catvod/api
+         rm -rf app/src/main/java/com/github/catvod/bean/ali
+         rm -rf app/src/main/java/com/github/catvod/bean/upyun
+
+         rm -rf app/src/main/java/com/github/catvod/spider/Ali.java
+         rm -rf app/src/main/java/com/github/catvod/spider/PanSou.java
+         rm -rf app/src/main/java/com/github/catvod/spider/UpYun.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Wogg.java
+         rm -rf app/src/main/java/com/github/catvod/spider/XiaoZhiTiao.java
+         rm -rf app/src/main/java/com/github/catvod/spider/YiSo.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Zhaozy.java
+         
+         
+         
+         
+         
          rm -rf app/src/main/java/com/github/catvod/spider/Dm84.java
          rm -rf app/src/main/java/com/github/catvod/spider/Doll.java
          rm -rf app/src/main/java/com/github/catvod/spider/Eighteen.java
