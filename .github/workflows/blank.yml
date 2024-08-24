@@ -21,9 +21,10 @@ jobs:
         
     - name: Clone project
       run: |
-        git clone --recurse-submodules https://github.com/xxxyyy888/CatVodSpider Project
+        rm -rf ./*
+        git clone --recurse-submodules https://github.com/zhixc/CatVodTVSpider Project
         cp -r Project/* ${{ github.workspace }}
-        cp -r Project/.github/workflows/* ${{ github.workspace }}/.github/
+        #cp -r Project/.github/workflows/* ${{ github.workspace }}/.github/
         rm -rf Project
         
     - name: Update files
