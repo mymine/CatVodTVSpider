@@ -34,22 +34,9 @@ jobs:
     - name: Customize Spider
       working-directory: ./project
       run: |
-         rm -rf app/src/main/java/com/github/catvod/api
-         rm -rf app/src/main/java/com/github/catvod/bean/ali
-         rm -rf app/src/main/java/com/github/catvod/bean/upyun
-
+      
+         #删除爬虫
          rm -rf app/src/main/java/com/github/catvod/spider/Ali.java
-         rm -rf app/src/main/java/com/github/catvod/spider/PanSou.java
-         rm -rf app/src/main/java/com/github/catvod/spider/UpYun.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Wogg.java
-         rm -rf app/src/main/java/com/github/catvod/spider/XiaoZhiTiao.java
-         rm -rf app/src/main/java/com/github/catvod/spider/YiSo.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Zhaozy.java
-         
-         
-         
-         
-         
          rm -rf app/src/main/java/com/github/catvod/spider/Dm84.java
          rm -rf app/src/main/java/com/github/catvod/spider/Doll.java
          rm -rf app/src/main/java/com/github/catvod/spider/Eighteen.java
@@ -60,15 +47,27 @@ jobs:
          rm -rf app/src/main/java/com/github/catvod/spider/Kanqiu.java
          rm -rf app/src/main/java/com/github/catvod/spider/Miss.java
          rm -rf app/src/main/java/com/github/catvod/spider/Notice.java                  
-         rm -rf app/src/main/java/com/github/catvod/spider/Star.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Ysj.java
          rm -rf app/src/main/java/com/github/catvod/spider/PanSearch.java
-         
-         
+         rm -rf app/src/main/java/com/github/catvod/spider/PanSou.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Star.java
+         rm -rf app/src/main/java/com/github/catvod/spider/UpYun.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Wogg.java
+         rm -rf app/src/main/java/com/github/catvod/spider/XiaoZhiTiao.java
+         rm -rf app/src/main/java/com/github/catvod/spider/YiSo.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Ysj.java
+         rm -rf app/src/main/java/com/github/catvod/spider/Zhaozy.java
+
+         #删除阿里云盘
+         rm -rf app/src/main/java/com/github/catvod/api
+         rm -rf app/src/main/java/com/github/catvod/bean/ali
+         rm -rf app/src/main/java/com/github/catvod/bean/upyun
+
          sed -i "22,31d" app/src/main/java/com/github/catvod/spider/Push.java
          sed -i "/ali.player/c return null;" app/src/main/java/com/github/catvod/spider/Push.java
          sed -i "/ali.detail/d" app/src/main/java/com/github/catvod/spider/Push.java
          sed -i "/ali/d;/Ali/d" app/src/main/java/com/github/catvod/spider/Proxy.java
+         
+         #删除Doll
          sed -i "/Doll/d" app/src/main/java/com/github/catvod/debug/MainActivity.java
 
     - name: Build the Jar
