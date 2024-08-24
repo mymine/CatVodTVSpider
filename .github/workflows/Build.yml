@@ -67,6 +67,7 @@ jobs:
          
          sed -i "22,31d" app/src/main/java/com/github/catvod/spider/Push.java
          sed -i "/ali.player/d" app/src/main/java/com/github/catvod/spider/Push.java
+         sed -i "/ali.detail/d" app/src/main/java/com/github/catvod/spider/Push.java
          sed -i "/ali/d;/Ali/d" app/src/main/java/com/github/catvod/spider/Proxy.java
          sed -i "/Doll/d" app/src/main/java/com/github/catvod/debug/MainActivity.java
 
