@@ -34,8 +34,11 @@ jobs:
     - name: Customize Spider
       working-directory: ./project
       run: |
-      
-         #删除爬虫
+
+         #添加飘花爬虫
+         cp ../app/src/main/java/com/github/catvod/spider/PiaoHua.java app/src/main/java/com/github/catvod/spider/PiaoHua.java
+         
+         #删除垃圾爬虫
          rm -rf app/src/main/java/com/github/catvod/spider/Ali.java
          rm -rf app/src/main/java/com/github/catvod/spider/Dm84.java
          rm -rf app/src/main/java/com/github/catvod/spider/Doll.java
@@ -67,7 +70,7 @@ jobs:
          sed -i "/ali.detail/d" app/src/main/java/com/github/catvod/spider/Push.java
          sed -i "/ali/d;/Ali/d" app/src/main/java/com/github/catvod/spider/Proxy.java
          
-         #删除Doll
+         #删除Doll残留
          sed -i "/Doll/d" app/src/main/java/com/github/catvod/debug/MainActivity.java
 
     - name: Build the Jar
