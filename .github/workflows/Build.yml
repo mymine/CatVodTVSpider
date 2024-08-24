@@ -73,8 +73,9 @@ jobs:
 
     - name: Build the Jar
       working-directory: ./project
-      run: |        
+      run: |
          chmod +x gradlew
+         cat project/app/src/main/java/com/github/catvod/spider/Push.java
          ./gradlew assemblerelease --build-cache --parallel --daemon --warning-mode all
          
     - name: Customize Spider Jar
