@@ -1,0 +1,111 @@
+{
+    "rules": [
+        {
+            "name": "量子广告",
+            "hosts": [
+                "vip.lz",
+                "hd.lz",
+                ".cdnlz"
+            ],
+            "regex": [
+                "#EXTINF.*?\\s+.*?1o.*?\\.ts\\s+",
+                "17.2",
+                "19.52",
+                "18.666667",
+                "#EXTINF.*?\\s+.*?1o.*?\\.ts\\s+"
+            ]
+        },
+        {
+            "name": "非凡广告",
+            "hosts": [
+                "super.ffzy",
+                "vip.ffzy",
+                "hd.ffzy"
+            ],
+            "regex": [
+                "25.199999",
+                "25.2",
+                "25.066667",
+                "18",
+                "19.766666",
+                "#EXT-X-DISCONTINUITY[\\r\\n]+#EXTINF:6.666667,[\\s\\S]*?#EXT-X-DISCONTINUITY"
+            ]
+        },
+        {
+            "name": "快看广告",
+            "hosts": [
+                "kuaikan"
+            ],
+            "regex": [
+                "#EXT-X-DISCONTINUITY[\\r\\n]+#EXT-X-KEY:METHOD=NONE[\\s\\S]*?#EXT-X-DISCONTINUITY",
+                "#EXTINF:5,[\\r\\n]+/20231231/WazGe7Ce/hls/nBxYFpCd.ts",
+                "#EXT-X-DISCONTINUITY[\\r\\n]+#EXT-X-KEY:METHOD=NONE[\\s\\S]*?#EXT-X-ENDLIST"
+            ]
+        },
+        {
+            "name": "索尼广告",
+            "hosts": [
+                "suonizy",
+                "cntvoss.com",
+                "ppsm3u8.com"
+            ],
+            "regex": [
+                "15.32",
+                "16.4",
+                "#EXT-X-DISCONTINUITY[\\r\\n]+#EXTINF:0.520000,[\\s\\S]*?#EXT-X-DISCONTINUITY"
+            ]
+        },
+        {
+            "name": "暴风广告",
+            "hosts": [
+                "bfengbf.com",
+                "bfllvip.com",
+                "bfzy",
+                "bfbfvip.com"
+            ],
+            "regex": [
+                "17.92",
+                "#EXTINF.*?\\s+.*?adjump.*?\\.ts\\s+"
+            ]
+        },
+        {
+            "name": "乐视资源广告",
+            "hosts": [
+                "leshiyuncdn",
+                "ahjunqin.top"
+            ],
+            "regex": [
+                "#EXT-X-DISCONTINUITY[\\r\\n]+#EXT-X-KEY:METHOD=NONE[\\s\\S]*?#EXT-X-DISCONTINUITY"
+            ]
+        },
+        {
+            "name": "49资源广告",
+            "hosts": [
+                "49zyvideoplayurl.com"
+            ],
+            "regex": [
+                "#EXT-X-KEY:METHOD=AES-128[\\s\\S]*?#EXT-X-DISCONTINUITY",
+                "#EXT-X-KEY:METHOD=NONE[\\s\\S]*?#EXT-X-DISCONTINUITY"
+            ]
+        },
+        {
+            "name": "星星广告",
+            "hosts": [
+                "aws.ulivetv.net"
+            ],
+            "regex": [
+                "#EXT-X-DISCONTINUITY\\r*\\n*#EXTINF:8,[\\s\\S]*?#EXT-X-DISCONTINUITY"
+            ]
+        },
+        {
+            "name": "一起看广告",
+            "hosts": [
+                "yqk88"
+            ],
+            "regex": [
+                "18.4",
+                "15.1666"
+            ]
+        }
+    ]
+}

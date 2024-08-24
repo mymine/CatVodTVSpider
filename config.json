@@ -1,0 +1,118 @@
+{
+  "spider": "./jar/custom_spider.jar;md5;aded0173514dd4ff9e6291a25346b286",
+
+  "lives": [
+    {
+      "name": "范明明IPV6",
+      "type": 0,
+      "url": "https://ghproxy.net/https://raw.githubusercontent.com/fanmingming/live/main/tv/m3u/ipv6.m3u",
+      "player删Type除": 1,
+      "epg": "http://epg.112114.xyz/?ch={name}&date={date}",
+      "logo": "https://epg.112114.xyz/logo/{name}.png",
+      "ua": "Mozilla/5.0(WindowsNT10.0;Win64;x64)AppleWebKit/537.36(KHTML,likeGecko)Chrome/110.0.0.0Safari/537.36"
+    },
+    {
+      "group": "redirect",
+      "channels": [
+        {"name": "live", "urls": ["proxy://do=live&type=txt&ext=aHR0cDovL2hvbWUuanVuZGllLnRvcDo4MS9DYXQvdHYvbGl2ZS50eHQ="]}
+      ]
+    }
+  ],
+
+  "wallpaper": "",
+
+  "sites": [
+    {"key":"csp_SixV","name":"磁力 | 新6V电影网","type":3,"api":"csp_SixV","searchable":1,"playerType":1,"timeout":120},
+    {"key":"csp_DyGang","name":"磁力 | 电影港","type":3,"api":"csp_DyGang","searchable":1,"playerType":1,"timeout":120},
+    {"key":"csp_Xunlei8","name":"磁力 | 迅雷吧","type":3,"api":"csp_Xunlei8","searchable":1,"playerType":1,"timeout":120,"changeable":0},
+    {"key":"PiaoHua","name":"磁力 | 新飘花电影网","type":3,"api":"csp_PiaoHua","searchable":1,"playerType":1,"timeout":120},
+    {"key":"Douban","name":"搜索 | 豆瓣","type":3,"api":"csp_Douban","ext":"./other/json/douban.json","searchable":0},
+    {"key":"本地","name":"本地文件","type":3,"api":"csp_LocalFileV2","searchable":0,"playerType":1},
+    {"key":"本地2","name":"本地文件(不显示隐藏文件)","type":3,"api":"csp_LocalFileV2","ext": "showAllFile=false","searchable":0,"playerType":1},
+    {"key":"巴士","name":"动漫 | 巴士","type":3,"api": "csp_Dm84","searchable":1},
+    {"key":"996影院","name":"影视 | 996影院","type":3,"api":"csp_Cs1369","searchable":0},
+    {"key":"星易影","name":"搜索 | 星易影","type":3,"api":"csp_XingYiYing","searchable":1},
+    {"key":"Anime1","name":"动漫 | Anime1","type":3,"api":"csp_Anime1","searchable":1},
+    {"key":"Voflix","name":"影视 | Voflix","type":3,"api":"csp_Voflix","searchable":1,"ext":"https://www.voflix.vip/"},
+    {"key":"Live2Vod","name":"直播 | 电视","type":3,"api":"csp_Live2Vod","searchable":0,"changeable":0,
+     "ext":"南风$https://ghproxy.liuzhicong.com/https://raw.githubusercontent.com/yoursmile66/TVBox/main/live.txt#yuanzl77$https://ghproxy.liuzhicong.com/https://raw.githubusercontent.com/yuanzl77/IPTV/main/live.txt&&&https://img1.dd.ci/file/08b8a048adf5d333c6030.png"
+    },
+    {"key":"Live2Vod2","name":"直播 | 电视(远程配置版)","type":3,"api":"csp_Live2Vod","ext":"./other/json/live.json","searchable":0,"changeable":0},
+    {"key":"Yj1211","name":"直播 | 综合","type":3,"api":"csp_Yj1211","searchable":1,"changeable":0},
+    {"key":"V2_cokemv","name":"影视 | cokemv[V2]","type":3,"api":"csp_AppYsV2","searchable":1,"ext":"https://cokemv.co/xgapp.php/v2/"},
+    {"key":"360","name":"影视 | 360","type":3,"api":"csp_SP360","searchable":1},
+    {"key":"IQIYI","name":"影视 | IQIYI","type":3,"api":"csp_IQIYI","searchable":1},
+    {"key":"MGTV","name":"影视 | MGTV","type":3,"api":"csp_MGTV","searchable":1},
+    {"key":"农民","name":"影视 | 农民","type":3,"api":"csp_NongMing","searchable":1},
+
+    {"key":"drpy_磁力熊","name":"磁力 | 磁力熊[js]","type":3,"api":"https://gitee.com/jahom1009/dr_py/raw/main/libs/drpy2.min.js","ext":"https://gitee.com/jahom1009/dr_py/raw/main/js/磁力熊[磁].js","playerType":1,"timeout":120},
+    {"key":"drpy_荐片","name":"影视 | 荐片[js]","type":3,"api":"https://gitee.com/jahom1009/dr_py/raw/main/libs/drpy2.min.js","ext":"https://gitee.com/jahom1009/dr_py/raw/main/js/荐片.js","playerType":1,"timeout":30},
+    {"key":"drpy_我的哔哩","name":"合集 | 我的哔哩[js]","type":3,"api":"https://gitee.com/jahom1009/dr_py/raw/main/libs/drpy2.min.js","ext":"https://gitee.com/jahom1009/dr_py/raw/main/js/我的哔哩.js"},
+    {"key":"drpy_厂长","name":"影视 | 厂长[js]","type":3,"api":"https://gitee.com/jahom1009/dr_py/raw/main/libs/drpy2.min.js","ext":"https://gitee.com/jahom1009/dr_py/raw/main/js/厂长资源.js"},
+    {"key":"drpy_低端","name":"影视 | 低端[js]","type":3,"api":"https://gitee.com/jahom1009/dr_py/raw/main/libs/drpy2.min.js","ext":"https://gitee.com/jahom1009/dr_py/raw/main/js/ddys.js"},
+    {"key":"drpy_两个BT","name":"影视 | 两个BT[js]","type":3,"api":"https://gitee.com/jahom1009/dr_py/raw/main/libs/drpy2.min.js","ext":"https://gitee.com/jahom1009/dr_py/raw/main/js/两个BT.js"},
+    {"key":"drpy_怡萱动漫","name":"动漫 | 怡萱[js]","type":3,"api":"https://gitee.com/jahom1009/dr_py/raw/main/libs/drpy2.min.js","ext":"https://gitee.com/jahom1009/dr_py/raw/main/js/怡萱动漫.js"},
+
+    {"key":"索尼资源","name":"影视 | 索尼资源采集","type":1,"api":"https://suoniapi.com/api.php/provide/vod/",
+      "categories": ["动作片", "喜剧片", "爱情片", "科幻片", "恐怖片", "剧情片", "战争片", "纪录片", "动画片", "国产剧", "欧美剧", "韩剧", "日剧", "港剧", "台剧", "泰剧", "海外剧", "大陆综艺", "日韩综艺", "港台综艺", "欧美综艺", "国产动漫", "日韩动漫", "欧美动漫", "港台动漫", "海外动漫"]
+    },
+    {"key":"量子资源","name":"影视 | 量子资源采集","type":1,"api":"https://cj.lziapi.com/api.php/provide/vod/",
+      "categories": ["动作片", "喜剧片", "科幻片", "恐怖片", "爱情片", "剧情片", "战争片", "记录片", "国产剧", "欧美剧", "香港剧", "韩国剧", "台湾剧", "日本剧", "海外剧", "泰国剧", "国产动漫", "日韩动漫", "欧美动漫", "港台动漫", "海外动漫", "大陆综艺", "港台综艺", "日韩综艺", "欧美综艺"]
+    },
+    {"key":"非凡资源","name":"影视 | 非凡资源采集","type":1,"api":"http://cj.ffzyapi.com/api.php/provide/vod/",
+      "categories": ["动作片", "喜剧片", "科幻片", "恐怖片", "爱情片", "剧情片", "战争片", "记录片", "国产剧", "欧美剧", "香港剧", "韩国剧", "台湾剧", "日本剧", "海外剧", "泰国剧", "国产动漫", "日韩动漫", "欧美动漫", "港台动漫", "海外动漫", "大陆综艺", "港台综艺", "日韩综艺", "欧美综艺"]
+    },
+    {"key":"push_agent","name":"推送(播放页链接或磁力)","type":3,"api":"csp_PushAgent","searchable":0,"playerType":1, "timeout":60}
+  ],
+
+  "parses": [
+    {"name":"解析聚合","type":3,"url": "Demo"},
+    {"name":"Web聚合","type":3,"url": "Web"},
+    {"name":"Json并发","type":2,"url": "Parallel"},
+    {"name":"Json轮询","type":2,"url": "Sequence"},
+    {"name":"综合","type":0,"url": "https://jx.jsonplayer.com/player/?url="},
+    {"name":"虾米","type":0,"url": "https://jx.xmflv.com/?url="}
+  ],
+
+  "flags": ["youku", "qq", "QQ", "iqiyi", "qiyi", "letv", "sohu", "tudou", "pptv", "PPTV", "mgtv", "wasu", "bilibili", "xmm", "xigua", "m1905"],
+
+  "ijk":
+      [{"group":"软解码","options":
+          [{"category":4,"name":"opensles","value":"0"},
+            {"category":4,"name":"overlay-format","value":"842225234"},
+            {"category":4,"name":"framedrop","value":"1"},
+            {"category":4,"name":"soundtouch","value":"1"},
+            {"category":4,"name":"start-on-prepared","value":"1"},
+            {"category":1,"name":"http-detect-range-support","value":"0"},
+            {"category":1,"name":"fflags","value":"fastseek"},
+            {"category":2,"name":"skip_loop_filter","value":"48"},
+            {"category":4,"name":"reconnect","value":"1"},
+            {"category":4,"name":"enable-accurate-seek","value":"0"},
+            {"category":4,"name":"mediacodec","value":"0"},
+            {"category":4,"name":"mediacodec-auto-rotate","value":"0"},
+            {"category":4,"name":"mediacodec-handle-resolution-change","value":"0"},
+            {"category":4,"name":"mediacodec-hevc","value":"0"},
+            {"category":1,"name":"dns_cache_timeout","value":"600000000"}]},
+        {"group":"硬解码","options":
+            [{"category":4,"name":"opensles","value":"0"},
+              {"category":4,"name":"overlay-format","value":"842225234"},
+              {"category":4,"name":"framedrop","value":"1"},
+              {"category":4,"name":"soundtouch","value":"1"},
+              {"category":4,"name":"start-on-prepared","value":"1"},
+              {"category":1,"name":"http-detect-range-support","value":"0"},
+              {"category":1,"name":"fflags","value":"fastseek"},
+              {"category":2,"name":"skip_loop_filter","value":"48"},
+              {"category":4,"name":"reconnect","value":"1"},
+              {"category":4,"name":"enable-accurate-seek","value":"0"},
+              {"category":4,"name":"mediacodec","value":"1"},
+              {"category":4,"name":"mediacodec-auto-rotate","value":"1"},
+              {"category":4,"name":"mediacodec-handle-resolution-change","value":"1"},
+              {"category":4,"name":"mediacodec-hevc","value":"1"},
+              {"category":1,"name":"dns_cache_timeout","value":"600000000"}]}],
+
+  "ads": [
+    "wan.51img1.com",
+    "iqiyi.hbuioo.com",
+    "vip.ffzyad.com"
+  ]
+}

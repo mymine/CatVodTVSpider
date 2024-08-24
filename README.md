@@ -1,125 +1,79 @@
-# CatVodSpider
+# 说明
 
-#仓库fokk自fongmi大佬，仅仅适配了影视仓本地配置token方法，以及增加了githubAction打包，其他与fongmi仓库一致
+### 1.基于这些开源的项目。
+>  [CatVodTVSpider项目](https://github.com/CatVodTVOfficial/CatVodTVSpider)
+、 [TvJar-1项目](https://github.com/q215613905/TvJar-1)、[tvjar_test](https://github.com/asters1/tvjar_test)、[CatVodSpider](https://github.com/FongMi/CatVodSpider)、[TvJar](https://github.com/takagen99/TvJar)
 
-### Based on CatVod
+- 在此感谢这些开源项目，感谢 CatVodTVOfficial、q215613905、asters1、FongMi、takagen99
 
-https://github.com/CatVodTVOfficial/CatVodTVSpider
+- 初次接触的话建议查看原来的 [README.md](./README(原).md)，里面有关于一些参数说明。
 
-## homeContent
-```json
-{
-	"class": [{   // 分类
-		"type_id": "dianying", // 分类id 
-		"type_name": "电影" // 分类名
-	}, {
-		"type_id": "lianxuju",
-		"type_name": "连续剧"
-	}],
-	"filters": { // 筛选
-		"dianying": [{ // 分类id 就是上面class中的分类id
-			"key": "0", // 筛选key
-			"name": "分类", // 筛选名称
-			"value": [{ // 筛选选项 
-				"n": "全部", // 选项展示的名称
-				"v": "dianying" // 选项最终在url中的展现
-			}, {
-				"n": "动作片",
-				"v": "dongzuopian"
-			}]
-		}],
-		"lianxuju": [{
-			"key": 0,
-			"name": "分类",
-			"value": [{
-				"n": "全部",
-				"v": "lianxuju"
-			}, {
-				"n": "国产剧",
-				"v": "guochanju"
-			}, {
-				"n": "港台剧",
-				"v": "gangtaiju"
-			}]
-		}]
-	},
-	"list": [{ // 首页最近更新视频列表
-		"vod_id": "1901", // 视频id
-		"vod_name": "判决", // 视频名
-		"vod_pic": "https:\/\/pic.imgdb.cn\/item\/614631e62ab3f51d918e9201.jpg", // 展示图片
-		"vod_remarks": "6.8" // 视频信息 展示在 视频名上方
-	}, {
-		"vod_id": "1908",
-		"vod_name": "移山的父亲",
-		"vod_pic": "https:\/\/pic.imgdb.cn\/item\/6146fab82ab3f51d91c01af1.jpg",
-		"vod_remarks": "6.7"
-	}]
-}
+### 2.编写spider说明：
+> 当前项目的dev分支无需启动虚拟机即可调试相关的内容(缺点是无法编写和调试与Android系统相关的内容，如果需要编写和调试与Android系统相关的内容，那么就需要用当前项目的main分支)，dev分支里面 /app/src/main/java/com/github/catvod/demo 下有多个测试的例子，给对应的 spider 类调试时，多打几个断点，仔细观察各个变量里面存储的是什么值就明白各个变量的作用了。
+
+### 3.编译和构建 jar：
+> 当调试好spider类后，可以将对应包下面的代码拷贝至main分支对应的包下，然后执行 buildAndGenJar.bat，即可构建jar，如果你是macOS / Linux 系统，那么可以利用 GitHub 的 Actions 去构建，当前项目的 Actions 里面有 【Spider Jar Gen CI】、【Spider构建】，建议使用 【Spider构建】，这个构建好 jar 后，存在 action 的 Artifacts 里，不会将jar直接提交到当前项目的 jar 目录下。在执行完毕的 action 里面的 Artifacts 可以找到和下载打包好的 Spider.zip ，解压后即可得到 jar
+
+
+### 4.配置接口
+> FongMi的影视APP / TVBox 配置地址: https://raw.githubusercontent.com/zhixc/CatVodTVSpider/main/config.json
+>
+> FongMi的影视APP / TVBox 配置加速地址1: https://mirror.ghproxy.com/https://raw.githubusercontent.com/zhixc/CatVodTVSpider/main/config.json
+>
+> FongMi的影视APP / TVBox 配置加速地址2: https://github.moeyy.xyz/https://raw.githubusercontent.com/zhixc/CatVodTVSpider/main/config.json
+
+
+
+### 5.推荐的软件
+> 强烈推荐使用 FongMi 的影视，支持自动换源，非常强大，作者持续更新维护。其仓库地址：https://github.com/FongMi/TV
+> 
+> 俊版TVBox、takagen99版TVBox，安装包发布仓库：https://github.com/o0HalfLife0o/TVBoxOSC
+> 
+> 俊版仓库地址：https://github.com/q215613905/TVBoxOS
+> 
+> takagen99版仓库地址 https://github.com/takagen99/Box
+
+### 6.关于直播(爬虫版)使用说明
+
+- 第一种写法，这种是早期写的，比较难阅读和编写
+```text
+{"key":"Live2Vod","name":"电视直播","type":3,"api":"csp_Live2Vod","searchable":1,"ext":"南风$https://agit.ai/Yoursmile7/TVBox/raw/branch/master/live.txt#饭太硬$https://agit.ai/fantaiying/fty/raw/branch/master/live.txt#影视范$https://agit.ai/fantaiying/fmm/raw/branch/main/tv/m3u/global.m3u"},
 ```
-
-## categoryContent
-```json
-{
-	"page": 1, // 当前页
-	"pagecount": 2, // 总共几页
-	"limit": 60, // 每页几条数据
-	"total": 120, // 总共多少调数据
-	"list": [{ // 视频列表 下面的视频结构 同上面homeContent中的
-		"vod_id": "1897",
-		"vod_name": "北区侦缉队",
-		"vod_pic": "https:\/\/pic.imgdb.cn\/item\/6145d4b22ab3f51d91bd98b6.jpg",
-		"vod_remarks": "7.3"
-	}, {
-		"vod_id": "1879",
-		"vod_name": "浪客剑心 最终章 人诛篇",
-		"vod_pic": "https:\/\/pic.imgdb.cn\/item\/60e3f37e5132923bf82ef95e.jpg",
-		"vod_remarks": "8.0"
-	}]
-}
+- 第二种写法，这种从配置文件里面读取会比较好些
+```text
+{"key":"Live2Vod","name":"电视直播(远程配置版)","type":3,"api":"csp_Live2Vod","searchable":1,"ext":"https://ghproxy.com/https://raw.githubusercontent.com/zhixc/CatVodTVSpider/main/json/live.json"},
 ```
-## detailContent
+- 第二种写法对应的配置文件说明：
 ```json
-{
-	"list": [{
-		"vod_id": "1902",
-		"vod_name": "海岸村恰恰恰",
-		"vod_pic": "https:\/\/pic.imgdb.cn\/item\/61463fd12ab3f51d91a0f44d.jpg",
-		"type_name": "剧情",
-		"vod_year": "2021",
-		"vod_area": "韩国",
-		"vod_remarks": "更新至第8集",
-		"vod_actor": "申敏儿,金宣虎,李相二,孔敏晶,徐尚沅,禹美华,朴艺荣,李世亨,边胜泰,金贤佑,金英玉",
-		"vod_director": "柳济元",
-		"vod_content": "海岸村恰恰恰剧情:　　韩剧海岸村恰恰恰 갯마을 차차차改编自2004年的电影《我的百事通男友洪班长》，海岸村恰恰恰 갯마을 차차차讲述来自大都市的牙医（申敏儿 饰）到充满人情味的海岸村开设牙医诊所，那里住着一位各方面都",
-        // 播放源 多个用$$$分隔
-		"vod_play_from": "qiepian$$$yun3edu", 
-        // 播放列表 注意分隔符 分别是 多个源$$$分隔，源中的剧集用#分隔，剧集的名称和地址用$分隔
-		"vod_play_url": "第1集$1902-1-1#第2集$1902-1-2#第3集$1902-1-3#第4集$1902-1-4#第5集$1902-1-5#第6集$1902-1-6#第7集$1902-1-7#第8集$1902-1-8$$$第1集$1902-2-1#第2集$1902-2-2#第3集$1902-2-3#第4集$1902-2-4#第5集$1902-2-5#第6集$1902-2-6#第7集$1902-2-7#第8集$1902-2-8" 
-	}]
-}
+[
+  {
+    "name": "txt直播名称1",
+    "url": "http://abc.txt"
+  },
+  {
+    "name": "txt直播名称2",
+    "url": "http://def.txt&&&http://hij.png"  // 直播链接与自定义图片用 &&& 隔开 
+  },
+  {
+    "name": "txt直播名称3",
+    "url": "http://def.txt&&&http://hij.png",
+    "circuit": 1   // 分组后各个组里面的直播按照名称分线路
+  },
+  {
+    "name": "m3u直播名称1",
+    "url": "https://lmn.m3u"
+  },
+  {
+    "name": "m3u直播名称2",
+    "url": "https://lmn.m3u&&&https://opq.jpg" // 同样的，带图片链接
+  },
+  {
+    "name": "m3u直播名称3(分组)",
+    "url": "https://rst.m3u&&&http://hij.png", // m3u分组的最好带上图片，不然没有图片
+    "group": 1  // 要分组的话，group 值为 1，其他情况不分组
+  }
+]
 ```
-# searchContent
-```json
-{
-	"list": [{ // 视频列表 下面的视频结构 同上面homeContent中的
-		"vod_id": "1606",
-		"vod_name": "陪你一起长大",
-		"vod_pic": "https:\/\/img.aidi.tv\/img\/upload\/vod\/20210417-1\/e27d4eb86f7cde375171dd324b2c19ae.jpg",
-		"vod_remarks": "更新至第37集"
-	}]
-}
-```
-# playerContent
-```json
-{
-    "header": "",
-    //0为解析，1为嗅探
-    "parse": 0,
-    // 播放地址
-    "url": "http://localhost:8080/%E5%B0%91%E5%84%BF/%E6%B1%AA%E6%B1%AA%E9%98%9F%E5%90%88%E9%9B%86/%E7%AC%AC8%E5%AD%A31080p/%E6%B1%AA%E6%B1%AA%E9%98%9F%E7%AB%8B%E5%A4%A7%E5%8A%9F.%E7%AC%AC%E5%85%AB%E5%AD%A3.1080P.%E7%AC%AC10%E9%9B%86.mp4",
-    "playUrl": ""
-}
-
-```
-
+- m3u 格式的文件，里面一般带有图片，如果在json配置文件里面写了图片链接，那么就以json配置文件的为主。
+- 一些直播源来自：Yoursmile7 的 [TVBox](https://agit.ai/Yoursmile7/TVBox)、Ftindy 的 [IPTV-URL](https://github.com/Ftindy/IPTV-URL)、范明明的 [live](https://github.com/fanmingming/live) 等项目，非常感谢 Yoursmile7、Ftindy、范明明的分享。
 

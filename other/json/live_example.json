@@ -1,0 +1,53 @@
+[
+  {
+    "name": "影视范",
+    "url": "https://agit.ai/fantaiying/fmm/raw/branch/main/tv/m3u/global.m3u"
+  },
+  {
+    "name": "影视范2",
+    "url": "https://agit.ai/fantaiying/fmm/raw/branch/main/tv/m3u/global.m3u&&&https://cdn.jsdelivr.net/gh/zhixc/CatVodTVSpider/pic/live.png"
+  },
+  {
+    "name": "吾爱",
+    "url": "http://52bsj.vip:81/api/v3/file/get/763/live.txt?sign=87BTGT1_6AOry7FPwy_uuxFTv2Wcb9aDMj46rDdRTD8%3D%3A0&&&https://cdn.jsdelivr.net/gh/zhixc/CatVodTVSpider/pic/live.png"
+  },
+  {
+    "name": "南风",
+    "url": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/live.txt&&&https://gh.isteed.cc/https://raw.githubusercontent.com/zhixc/CatVodTVSpider/main/other/pic/live.png"
+  },
+  {
+    "name": "南风(分线路)",
+    "url": "https://agit.ai/Yoursmile7/TVBox/raw/branch/master/live.txt&&&https://gh.isteed.cc/https://raw.githubusercontent.com/zhixc/CatVodTVSpider/main/other/pic/live.png",
+    "circuit": 1
+  },
+  {
+    "name": "Ftindy百事通",
+    "url": "https://cdn.jsdelivr.net/gh/Ftindy/IPTV-URL/bestv.m3u"
+  },
+  {
+    "name": "Ftindy百事通(分组)",
+    "url": "https://cdn.jsdelivr.net/gh/Ftindy/IPTV-URL/bestv.m3u&&&https://gh.isteed.cc/https://raw.githubusercontent.com/zhixc/CatVodTVSpider/main/other/pic/live.png",
+    "group": 1
+  },
+  {
+    "name": "Ftindy爱尚",
+    "url": "https://cdn.jsdelivr.net/gh/Ftindy/IPTV-URL/aishang.m3u"
+  },
+  {
+    "name": "Ftindy爱尚(分组)",
+    "url": "https://cdn.jsdelivr.net/gh/Ftindy/IPTV-URL/aishang.m3u&&&https://gh.isteed.cc/https://raw.githubusercontent.com/zhixc/CatVodTVSpider/main/other/pic/live.png",
+    "group": 1
+  },
+  {
+    "name": "虎牙一起看",
+    "url": "https://cdn.jsdelivr.net/gh/Ftindy/IPTV-URL/huyayqk.m3u"
+  },
+  {
+    "name": "斗鱼一起看",
+    "url": "https://cdn.jsdelivr.net/gh/Ftindy/IPTV-URL/douyuyqk.m3u"
+  },
+  {
+    "name": "YY轮播",
+    "url": "https://cdn.jsdelivr.net/gh/Ftindy/IPTV-URL/yylunbo.m3u"
+  }
+]

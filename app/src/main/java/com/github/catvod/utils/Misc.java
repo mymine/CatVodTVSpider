@@ -40,8 +40,7 @@ public class Misc {
     }
 
     private static final Pattern snifferMatch = Pattern.compile("http((?!http).){26,}?\\.(m3u8|mp4)\\?.*|http((?!http).){26,}\\.(m3u8|mp4)|http((?!http).){26,}?/m3u8\\?pt=m3u8.*|http((?!http).)*?default\\.ixigua\\.com/.*|http((?!http).)*?cdn-tos[^\\?]*|http((?!http).)*?/obj/tos[^\\?]*|http.*?/player/m3u8play\\.php\\?url=.*|http.*?/player/.*?[pP]lay\\.php\\?url=.*|http.*?/playlist/m3u8/\\?vid=.*|http.*?\\.php\\?type=m3u8&.*|http.*?/download.aspx\\?.*|http.*?/api/up_api.php\\?.*|https.*?\\.66yk\\.cn.*|http((?!http).)*?netease\\.com/file/.*");
-    public static Charset CharsetUTF8 = Charset.forName("UTF-8");
-    public static Charset CharsetIOS8859 = Charset.forName("iso-8859-1");
+
     public static boolean isVideoFormat(String url) {
         if (snifferMatch.matcher(url).find()) {
             if (url.contains("cdn-tos") && url.contains(".js")) {
@@ -93,7 +92,12 @@ public class Misc {
 
     public static JSONObject jsonParse(String input, String json) throws JSONException {
         JSONObject jsonPlayData = new JSONObject(json);
-        String url = jsonPlayData.getString("url");
+        String url;
+        if (jsonPlayData.has("data")) {
+            url = jsonPlayData.getJSONObject("data").getString("url");
+        } else {
+            url = jsonPlayData.getString("url");
+        }
         if (url.startsWith("//")) {
             url = "https:" + url;
         }
@@ -117,12 +121,17 @@ public class Misc {
         if (referer.trim().length() > 0) {
             headers.put("Referer", " " + referer);
         }
+
         headers = Misc.fixJsonVodHeader(headers, input, url);
         JSONObject taskResult = new JSONObject();
         taskResult.put("header", headers);
         taskResult.put("url", url);
         return taskResult;
     }
+
+
+    public static Charset CharsetUTF8 = Charset.forName("UTF-8");
+    public static Charset CharsetIOS8859 = Charset.forName("iso-8859-1");
 
     public static String MD5(String src, Charset charset) {
         try {
