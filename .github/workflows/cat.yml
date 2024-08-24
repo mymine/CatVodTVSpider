@@ -18,7 +18,8 @@ jobs:
         
     - name: Clone project
       run: |
-        rm -rf ../CatVodTVSpider
+        cd ../
+        rm -rf CatVodTVSpider
         git clone --recurse-submodules https://github.com/FongMi/CatVodSpider CatVodTVSpider
       
     - name: Customize Spider
