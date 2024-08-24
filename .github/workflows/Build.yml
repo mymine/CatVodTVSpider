@@ -65,7 +65,7 @@ jobs:
          rm -rf app/src/main/java/com/github/catvod/spider/JustLive.java
          rm -rf app/src/main/java/com/github/catvod/spider/Kanqiu.java
          rm -rf app/src/main/java/com/github/catvod/spider/Kugou.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Local.java
+         #rm -rf app/src/main/java/com/github/catvod/spider/Local.java
          rm -rf app/src/main/java/com/github/catvod/spider/Miss.java
          rm -rf app/src/main/java/com/github/catvod/spider/Notice.java                  
          rm -rf app/src/main/java/com/github/catvod/spider/Star.java
