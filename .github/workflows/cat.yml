@@ -9,59 +9,47 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@main
+    - uses: actions/checkout@v4
     - name: set up JDK
-      uses: actions/setup-java@main
+      uses: actions/setup-java@v4
       with:
         java-version: '18'
         distribution: 'temurin'
+        
+    - name: Delete workflows
+      uses: Mattraks/delete-workflow-runs@v2
+      with:
+        token: ${{ github.token }}
+        repository: ${{ github.repository }}
+        retain_days: 0 
+        #The number of days that is used to compare with the retention days of each workflow.
+        keep_minimum_runs: 2 
+        #The minimum runs to keep for each workflow.
         
     - name: Clone project
       run: |
         cd ../
         rm -rf CatVodTVSpider
-        git clone --recurse-submodules https://github.com/FongMi/CatVodSpider CatVodTVSpider
-      
-    - name: Customize Spider
-      #working-directory: ./project
-      run: |
-         rm -rf app/src/main/java/com/github/catvod/spider/Dm84.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Doll.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Eighteen.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Hanime.java
-         rm -rf app/src/main/java/com/github/catvod/spider/JSDemo.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Jable.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Jianpian.java
-         rm -rf app/src/main/java/com/github/catvod/spider/JustLive.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Kanqiu.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Kugou.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Local.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Miss.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Notice.java                  
-         rm -rf app/src/main/java/com/github/catvod/spider/Star.java
-         rm -rf app/src/main/java/com/github/catvod/spider/Ysj.java
-         
+        git clone --recurse-submodules https://github.com/FongMi/CatVodSpider CatVodTVSpider      
 
-    - name: Build the Jar
-      #working-directory: ./project
+    - name: Build the app
+      working-directory: ./
       run: |        
          chmod +x gradlew
          ./gradlew assemblerelease --build-cache --parallel --daemon --warning-mode all
          
     - name: Customize Spider Jar
-      working-directory: ./project
+      working-directory: ./
       run: |        
          rm -rf jar/custom_spider.jar
          rm -rf jar/spider.jar/original/META-INF
-         curl -L https://github.com/iBotPeaches/Apktool/releases/download/v2.7.0/apktool_2.7.0.jar > jar/3rd/apktool_2.7.0.jar
-         java -jar jar/3rd/baksmali-2.5.2.jar d app/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex -o jar/Smali_classes
+         java -jar jar/3rd/baksmali-2.5.2.jar d ./app/build/intermediates/dex/release/minifyReleaseWithR8/classes.dex -o jar/Smali_classes
          mkdir -p jar/spider.jar/smali/com/github/catvod/
-         mv jar/Smali_classes/com/github/catvod/spider jar/spider.jar/smali/com/github/catvod/         
-         java -jar jar/3rd/apktool_2.7.0.jar b jar/spider.jar -c
-         #mv jar/spider.jar/dist/dex.jar ../jar/custom_spider.jar
-         #md5=($(md5sum ./jar/custom_spider.jar))
-         echo $(md5sum ./jar/custom_spider.jar | awk '{print $1}') > ./jar/custom_spider.jar.md5
-         
+         mv jar/Smali_classes/com/github/catvod/spider jar/spider.jar/smali/com/github/catvod/
+         java -jar jar/3rd/apktool_2.4.1.jar b jar/spider.jar -c
+         mv jar/spider.jar/dist/dex.jar jar/custom_spider.jar
+         md5=($(md5sum jar/custom_spider.jar))
+         echo $md5 > jar/custom_spider.jar.md5
     - name: Upload APK
       uses: actions/upload-artifact@v3.1.2
       with:
@@ -73,4 +61,4 @@ jobs:
       with:
         default_author: github_actions
         message: 'update spider jar'
-        add: "['./jar/custom_spider.jar', './jar/custom_spider.jar.md5']"        
+        add: "['./jar/custom_spider.jar', './jar/custom_spider.jar.md5']"
