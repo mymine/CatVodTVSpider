@@ -30,7 +30,7 @@ jobs:
       run: |
         rm -rf jar/custom_spider.jar
         git clone --recurse-submodules https://github.com/lushunming/AndroidCatVodSpider project
-        sed -i 's/mirrors.cloud.tencent.com/services.gradle.org\/distributions/g' project/gradle/wrapper/gradle-wrapper.properties        
+        sed -i 's/mirrors.cloud.tencent.com\gradle/services.gradle.org\/distributions/g' project/gradle/wrapper/gradle-wrapper.properties        
       
     - name: Customize Spider
       working-directory: ./project
