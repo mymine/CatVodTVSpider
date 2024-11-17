@@ -59,14 +59,14 @@ jobs:
          rm -rf app/src/main/java/com/github/catvod/spider/Zhaozy.java
 
          #删除阿里云盘
-         rm -rf app/src/main/java/com/github/catvod/api
-         rm -rf app/src/main/java/com/github/catvod/bean/ali
-         rm -rf app/src/main/java/com/github/catvod/bean/upyun
+         #rm -rf app/src/main/java/com/github/catvod/api
+         #rm -rf app/src/main/java/com/github/catvod/bean/ali
+         #rm -rf app/src/main/java/com/github/catvod/bean/upyun
 
-         sed -i "22,31d" app/src/main/java/com/github/catvod/spider/Push.java
-         sed -i "/ali.player/c return null;" app/src/main/java/com/github/catvod/spider/Push.java
-         sed -i "/ali.detail/d" app/src/main/java/com/github/catvod/spider/Push.java
-         sed -i "/\"ali\"/d;/return Ali/d" app/src/main/java/com/github/catvod/spider/Proxy.java
+         #sed -i "22,31d" app/src/main/java/com/github/catvod/spider/Push.java
+         #sed -i "/ali.player/c return null;" app/src/main/java/com/github/catvod/spider/Push.java
+         #sed -i "/ali.detail/d" app/src/main/java/com/github/catvod/spider/Push.java
+         #sed -i "/\"ali\"/d;/return Ali/d" app/src/main/java/com/github/catvod/spider/Proxy.java
          
          #删除Doll残留
          sed -i "/Doll/d" app/src/main/java/com/github/catvod/debug/MainActivity.java
