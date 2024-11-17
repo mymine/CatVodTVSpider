@@ -29,7 +29,7 @@ jobs:
     - name: Clone project
       run: |
         rm -rf jar/custom_spider.jar
-        git clone --recurse-submodules https://github.com/FongMi/CatVodSpider project
+        git clone --recurse-submodules https://github.com/lushunming/AndroidCatVodSpider project
       
     - name: Customize Spider
       working-directory: ./project
